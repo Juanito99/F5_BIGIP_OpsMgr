@@ -1,0 +1,626 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instance777ce6e2933b42b3aa5e40d7a17ea27d" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Windows!Microsoft.Windows.WmiBased.Performance.ConsecutiveSamplesThreshold</MonitorType>
+        <MonitorConfig>&lt;NameSpace&gt;root\cimv2&lt;/NameSpace&gt;&lt;Query&gt;SELECT StatusCode FROM Win32_PingStatus WHERE Address ='$Target/Property[Type="ABC.F5.BIGIP.System"]/IPAddress$'&lt;/Query&gt;&lt;Frequency&gt;300&lt;/Frequency&gt;&lt;ObjectName&gt;F5PingCheck&lt;/ObjectName&gt;&lt;CounterName&gt;PingCheckResponse&lt;/CounterName&gt;&lt;InstanceName /&gt;&lt;Value&gt;$Data/Property[@Name='StatusCode']$&lt;/Value&gt;&lt;Threshold&gt;0&lt;/Threshold&gt;&lt;Direction&gt;greater&lt;/Direction&gt;&lt;NumSamples&gt;4&lt;/NumSamples&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>ConditionTrue</OperationalStateId>
+            <OperationalStateDisplayName>ConditionTrue</OperationalStateDisplayName>
+            <MonitorTypeStateId>ConditionTrue</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ConditionFalse</OperationalStateId>
+            <OperationalStateDisplayName>ConditionFalse</OperationalStateDisplayName>
+            <MonitorTypeStateId>ConditionFalse</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.System.Aggregate.HealthState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.System</Id>
+        <DisplayName>Monitor F5 BIGIP System with PING</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>ABC.F5.BIGIP.System</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>F5 BIGIP - Not reachable</AlertName>
+        <AlertDescription>F5 BIGIP System not reachable via PING</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instanceea6b5b764de34b76981450520b20d6ca" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.AggregateMonitor" Version="1.0.0.0">
+      <AggregateMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>WorstOf</Algorithm>
+        <ParentMonitor>Health!System.Health.PerformanceState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.System.Aggregate.HealthState</Id>
+        <DisplayName>Monitor F5 BIGIP System HealthState Aggregation</DisplayName>
+        <Description>Description for new aggregate monitor.</Description>
+        <Target>ABC.F5.BIGIP.System</Target>
+        <Enabled>true</Enabled>
+        <Category>PerformanceHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </AggregateMonitorConfig>
+    </Instance>
+    <Instance ID="Instance6634c31bb6184c6b99d69bb0ff016634" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>ABC.F5.BIGIP.Applications.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;NodeAddr&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.NodeAddress"]/Key$&lt;/Key&gt;&lt;Threshold&gt;90&lt;/Threshold&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.SecurityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.Application.NodeAddr</Id>
+        <DisplayName>Monitor F5 BIGIP Application NodeAddr</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>ABC.F5.BIGIP.NodeAddress</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>NodeAddr Issue</AlertName>
+        <AlertDescription>Please check. NodeAddress System abnormal.
+
+
+TestedAt: $Data/Context/Property[@Name='TestedAt']$
+Last check Result: $Data/Context/Property[@Name='State']$
+
+
+Supplement: $Data/Context/Property[@Name='Supplement']$
+
+</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instanceccf27b4fd1084d99a7b160762f620abf" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>ABC.F5.BIGIP.SystemHardware.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;Disks&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.Disk"]/Key$&lt;/Key&gt;&lt;Threshold&gt;10&lt;/Threshold&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Success</OperationalStateId>
+            <OperationalStateDisplayName>Success</OperationalStateDisplayName>
+            <MonitorTypeStateId>Success</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>Failure</OperationalStateId>
+            <OperationalStateDisplayName>Failure</OperationalStateDisplayName>
+            <MonitorTypeStateId>Failure</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.PerformanceState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.System.Disk</Id>
+        <DisplayName>Monitor F5 BIGIP System Disk</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>ABC.F5.BIGIP.Disk</Target>
+        <Enabled>true</Enabled>
+        <Category>PerformanceHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>F5 Disk Issue</AlertName>
+        <AlertDescription>Please check. Disk System abnormal.
+
+
+TestedAt: $Data/Context/Property[@Name='TestedAt']$
+Last check Result: $Data/Context/Property[@Name='State']$
+
+
+Supplement: $Data/Context/Property[@Name='Supplement']$</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance446f5c588ac84420bb03a727f720e4f2" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>ABC.F5.BIGIP.SystemHardware.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;Memory&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.Memory"]/Key$&lt;/Key&gt;&lt;Threshold&gt;80&lt;/Threshold&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Success</OperationalStateId>
+            <OperationalStateDisplayName>Success</OperationalStateDisplayName>
+            <MonitorTypeStateId>Success</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>Failure</OperationalStateId>
+            <OperationalStateDisplayName>Failure</OperationalStateDisplayName>
+            <MonitorTypeStateId>Failure</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.PerformanceState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.System.Memory</Id>
+        <DisplayName>Monitor F5 BIGIP System Memory</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>ABC.F5.BIGIP.Memory</Target>
+        <Enabled>true</Enabled>
+        <Category>PerformanceHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>F5 Memory usage too high</AlertName>
+        <AlertDescription>Please check. Memory usage abnormal.
+
+
+TestedAt: $Data/Context/Property[@Name='TestedAt']$
+Last check Result: $Data/Context/Property[@Name='State']$
+
+
+Supplement: $Data/Context/Property[@Name='Supplement']$
+</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance397a9ffe34504119ada319645888e8e5" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>ABC.F5.BIGIP.Applications.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;900&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;TrafficGroup&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.TrafficGroupItem"]/Key$&lt;/Key&gt;&lt;Threshold&gt;&lt;/Threshold&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.ConfigurationState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.Application.TrafficGroupItem</Id>
+        <DisplayName>Monitor F5 BIGIP Application TrafficGroupItem</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>ABC.F5.BIGIP.TrafficGroupItem</Target>
+        <Enabled>true</Enabled>
+        <Category>ConfigurationHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>TrafficGroupItem unhealthy state</AlertName>
+        <AlertDescription>Please check. TrafficGroupItem abnormal.
+
+
+TestedAt: $Data/Context/Property[@Name='TestedAt']$
+Last check Result: $Data/Context/Property[@Name='State']$
+
+
+Supplement: $Data/Context/Property[@Name='Supplement']$
+
+</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance50eec33537db498b986a3c4122de342d" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>ABC.F5.BIGIP.SystemHardware.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;CPU&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.CPU"]/Key$&lt;/Key&gt;&lt;Threshold&gt;90&lt;/Threshold&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Success</OperationalStateId>
+            <OperationalStateDisplayName>Success</OperationalStateDisplayName>
+            <MonitorTypeStateId>Success</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>Failure</OperationalStateId>
+            <OperationalStateDisplayName>Failure</OperationalStateDisplayName>
+            <MonitorTypeStateId>Failure</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.PerformanceState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.System.CPU</Id>
+        <DisplayName>Monitor F5 BIGIP System CPU</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>ABC.F5.BIGIP.CPU</Target>
+        <Enabled>true</Enabled>
+        <Category>PerformanceHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>CPU usage too high</AlertName>
+        <AlertDescription>Please check. CPU System abnormal.
+
+
+TestedAt: $Data/Context/Property[@Name='TestedAt']$
+Last check Result: $Data/Context/Property[@Name='State']$
+
+
+Supplement: $Data/Context/Property[@Name='Supplement']$</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instancebf2a90bea1db4eeb93fd959c3c7a3a0c" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>ABC.F5.BIGIP.Applications.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;900&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;SyncStatus&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.SyncStatusItem"]/Key$&lt;/Key&gt;&lt;Threshold&gt;&lt;/Threshold&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.ConfigurationState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.Application.SyncStatusItem</Id>
+        <DisplayName>Monitor F5 BIGIP Application SyncStatusItem</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>ABC.F5.BIGIP.SyncStatusItem</Target>
+        <Enabled>true</Enabled>
+        <Category>ConfigurationHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>SyncStatus Item unhealthy state</AlertName>
+        <AlertDescription>Please check. SyncStatus Item abnormal.
+
+
+TestedAt: $Data/Context/Property[@Name='TestedAt']$
+Last check Result: $Data/Context/Property[@Name='State']$
+
+
+Supplement: $Data/Context/Property[@Name='Supplement']$
+
+</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance8f1adc73791b4a9288493274c277c9fe" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>ABC.F5.BIGIP.Applications.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;PoolStatus&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.PoolStatus"]/Key$&lt;/Key&gt;&lt;Threshold&gt;90&lt;/Threshold&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.Application.PoolStatus</Id>
+        <DisplayName>Monitor F5 BIGIP Application PoolStatus</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>ABC.F5.BIGIP.PoolStatus</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>PoolStatus Issue</AlertName>
+        <AlertDescription>Please check. PoolStatus System abnormal.
+
+
+TestedAt: $Data/Context/Property[@Name='TestedAt']$
+Last check Result: $Data/Context/Property[@Name='State']$
+
+
+Supplement: $Data/Context/Property[@Name='Supplement']$
+
+</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance78ca6b7499364353b91923b676591be8" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.Application.NodeAddr</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>ABC.F5.BIGIP.NodeAddressGroupHostsNodeAddress</RelationshipType>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.Application.NodeAddr.Group</Id>
+        <DisplayName>Monitor F5 BIGIP Application NodeAddr Group</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>ABC.F5.BIGIP.NodeAddress.Group</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+    <Instance ID="Instancedb5a266173c344c29eb2e75a0da269cd" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>Health!System.Health.ConfigurationState</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>ABC.F5.BIGIP.SystemHostsSyncStatusItemGroup</RelationshipType>
+        <ParentMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.System.Aggregate.HealthState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.System.SysDepOn.SyncItm</Id>
+        <DisplayName>Monitor F5 BIGIP System System Depends On SyncStatusItem Group</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>ABC.F5.BIGIP.System</Target>
+        <Enabled>true</Enabled>
+        <Category>ConfigurationHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+    <Instance ID="Instance2ee9be5cacdf4caf93f06910b9164d90" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>Health!System.Health.ConfigurationState</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>ABC.F5.BIGIP.SystemHostsTrafficGroupItemGroup</RelationshipType>
+        <ParentMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.System.Aggregate.HealthState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.System.SysDepOn.TraffGrp</Id>
+        <DisplayName>Monitor F5 BIGIP System System Depends On TrafficGroups</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>ABC.F5.BIGIP.System</Target>
+        <Enabled>true</Enabled>
+        <Category>ConfigurationHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+    <Instance ID="Instance894e80040e22440e96ebc322a7cdab71" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.System.CPU</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>ABC.F5.BIGIP.SystemHostsCPU</RelationshipType>
+        <ParentMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.System.Aggregate.HealthState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.System.SysDepOn.CPU</Id>
+        <DisplayName>Monitor F5 BIGIP System System Depends On CPU</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>ABC.F5.BIGIP.System</Target>
+        <Enabled>true</Enabled>
+        <Category>PerformanceHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+    <Instance ID="Instance26879b3e5a5448af9e74aa01c0e6a17c" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.System.Disk</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>ABC.F5.BIGIP.SystemHostsDisk</RelationshipType>
+        <ParentMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.System.Aggregate.HealthState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.System.SysDepOn.Disk</Id>
+        <DisplayName>Monitor F5 BIGIP System System Depends On Disk</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>ABC.F5.BIGIP.System</Target>
+        <Enabled>true</Enabled>
+        <Category>PerformanceHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+    <Instance ID="Instance35f233d115ff42e595865546ea2ac980" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.Application.TrafficGroupItem</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>ABC.F5.BIGIP.TrafficGroupItemGroupHostsTrafficGroupItem</RelationshipType>
+        <ParentMonitor>Health!System.Health.ConfigurationState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.Application.TrafficItemGroup.Group</Id>
+        <DisplayName>Monitor F5 BIGIP Application TrafficItemGroup Group</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>ABC.F5.BIGIP.TrafficGroupItem.Group</Target>
+        <Enabled>true</Enabled>
+        <Category>ConfigurationHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+    <Instance ID="Instance2ca6a1eb67004fa2b24e848576cfb59c" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.Application.PoolStatus</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>ABC.F5.BIGIP.PoolStatusGroupHostsPoolStatus</RelationshipType>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.Application.PoolStatusGroup</Id>
+        <DisplayName>Monitor F5 BIGIP Application PoolStatusGroup</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>ABC.F5.BIGIP.PoolStatus.Group</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+    <Instance ID="Instance25dca4dc2e1a48a281a8f69dedfadc83" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.Application.SyncStatusItem</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>ABC.F5.BIGIP.SyncStatusItemGroupHostsSyncStatusItem</RelationshipType>
+        <ParentMonitor>Health!System.Health.ConfigurationState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.Application.SyncStatusItem.Group</Id>
+        <DisplayName>Monitor F5 BIGIP Application SyncStatusItem Group</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>ABC.F5.BIGIP.SyncStatusItem.Group</Target>
+        <Enabled>true</Enabled>
+        <Category>ConfigurationHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+    <Instance ID="Instance52739e45b1474dc29b611ef8a6b0d6ca" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.System.Memory</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>ABC.F5.BIGIP.SystemHostsMemory</RelationshipType>
+        <ParentMonitor>ABC.F5.BIGIP.Monitor.F5.BIGIP.System.Aggregate.HealthState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.F5.BIGIP.System.SysDepOn.Mem</Id>
+        <DisplayName>Monitor F5 BIGIP System System Depends On Memory</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>ABC.F5.BIGIP.System</Target>
+        <Enabled>true</Enabled>
+        <Category>PerformanceHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

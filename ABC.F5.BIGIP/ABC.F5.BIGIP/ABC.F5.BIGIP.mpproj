@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{85b293b4-b5ec-4e05-a847-842c21241ff8}</ProjectGuid>
+    <RootNamespace>ABC.F5.BIGIP</RootNamespace>
+    <Name>ABC.F5.BIGIP</Name>
+    <ManagementPackName>ABC.F5.BIGIP</ManagementPackName>
+    <Version>1.0.0.0</Version>
+    <MpFrameworkVersion>v7.0.2</MpFrameworkVersion>
+    <MpFrameworkProfile>OM</MpFrameworkProfile>
+    <ProductVersion>1.1.0.0</ProductVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <GenerateSealed>false</GenerateSealed>
+    <Company>MyCompany</Company>
+    <Copyright>Copyright (c) MyCompany. All rights reserved.</Copyright>
+    <DelaySigning>false</DelaySigning>
+    <AssemblyOriginatorKeyFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <DelaySigning>false</DelaySigning>
+    <Company>MyCompany</Company>
+    <Copyright>Copyright (c) MyCompany. All rights reserved.</Copyright>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <ManagementPackReference Include="Microsoft.SystemCenter.Library">
+      <Alias>SC</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="Microsoft.Windows.Library">
+      <Alias>Windows</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="System.Health.Library">
+      <Alias>Health</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="System.Library">
+      <Alias>System</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="Microsoft.SystemCenter.Visualization.Library">
+      <Alias>Visualization</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Health Model\Modules.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Health Model\Monitors.mptg.mpx">
+      <SubType>Code</SubType>
+      <DependentUpon>Health Model\Monitors.mptg</DependentUpon>
+    </Compile>
+    <Compile Include="Project.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service Model\Classes\Definitions.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service Model\Discoveries\Discoveries.mptg.mpx">
+      <SubType>Code</SubType>
+      <DependentUpon>Service Model\Discoveries\Discoveries.mptg</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Auxiliary" />
+    <Folder Include="Health Model" />
+    <Folder Include="Service Model" />
+    <Folder Include="Service Model\Classes" />
+    <Folder Include="Service Model\Discoveries" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Auxiliary\F5-Discovery-rest.ps1" />
+    <EmbeddedResource Include="Auxiliary\F5-Discovery-snmp.ps1" />
+    <EmbeddedResource Include="Health Model\MonitorF5Applications.ps1" />
+    <EmbeddedResource Include="Health Model\MonitorF5SystemHardware.ps1" />
+    <EmbeddedResource Include="Service Model\Discoveries\DiscoverF5ApplicationRelations.ps1" />
+    <EmbeddedResource Include="Service Model\Discoveries\DiscoverF5Applications.ps1" />
+    <EmbeddedResource Include="Service Model\Discoveries\DiscoverF5SystemHardwareRelations.ps1" />
+    <EmbeddedResource Include="Service Model\Discoveries\DiscoverF5Systems.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Health Model\Monitors.mptg">
+      <SubType>Content</SubType>
+      <Generator>FragmentGenerator</Generator>
+    </Content>
+    <Content Include="Service Model\Discoveries\Discoveries.mptg">
+      <SubType>Content</SubType>
+      <Generator>FragmentGenerator</Generator>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VSAC\Microsoft.SystemCenter.OperationsManager.targets" />
+</Project>
