@@ -1,4 +1,7 @@
-﻿
+﻿#requires -version 5
+
+#Net-SNMP Tools is expected in the default directory, if not please adobt.
+
 #region PROGRAM_Initialization
 
 $Global:Error.Clear()

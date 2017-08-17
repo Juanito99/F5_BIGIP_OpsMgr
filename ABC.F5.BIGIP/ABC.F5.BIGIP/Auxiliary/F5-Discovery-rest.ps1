@@ -1,4 +1,6 @@
-﻿#region PREWORK Disabling the certificate validations
+﻿#requires -version 5
+
+#region PREWORK Disabling the certificate validations
 add-type -TypeDefinition @"
     using System.Net;
     using System.Security.Cryptography.X509Certificates;
