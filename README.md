@@ -9,7 +9,7 @@ Url: http://www.rjz.de/F5BIGIPWithOpsMgr
 
 # License Terms
 
-Integrate Oracle DBs into OpsMgr by using Foglight
+Monitor F5 BIGIP with OpsMgr
 Copyright (C) 2017 Ruben Zimmermann (Juanito99)
 
 This program is free software: you can redistribute it and/or modify
