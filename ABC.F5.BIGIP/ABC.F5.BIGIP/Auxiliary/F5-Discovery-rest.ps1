@@ -33,7 +33,7 @@ $restURIs = @{
   'Services' = '/mgmt/tm/sys/ha-status/stats?options=all-properties'
 }
 
-$tempPath = Get-ItemProperty -Path 'HKLM:\SOFTWARE\SIGIT\F5BigIPMonitoringServer' | Select-Object -ExpandProperty FilePath
+$tempPath = Get-ItemProperty -Path 'HKLM:\SOFTWARE\ABCIT\F5BigIPMonitoringServer' | Select-Object -ExpandProperty FilePath
 $logName  = $tempPath + '\' + $($MyInvocation.MyCommand.Name) + '.log.txt'
 
 if (Test-Path -Path $tempPath) {
