@@ -1,4 +1,8 @@
 ## Monitor F5 BIGIP with OpsMgr
+Basic Management Pack which provides general health state and alerting for the following components:
+-	CPU, Disk and Memory
+-	SyncStatus, PoolStatus, NodeAddress and TrafficGroups
+
 
 ### Diagram View:
 ![F5_DiagramView](https://raw.githubusercontent.com/Juanito99/F5_BIGIP_OpsMgr/master/PicturesForGitWebSite/f5diagramview.png)
@@ -12,7 +16,12 @@
 
 
 ### More information on:
-Url: http://www.rjz.de/F5BIGIPWithOpsMgr
+[Documentation](https://github.com/Juanito99/F5_BIGIP_OpsMgr/blob/master/Documentation/Monitor_F5_BIGIP_with_OpsMgr.pdf)
+
+
+### Downloads:
+[ManagementPack](https://github.com/Juanito99/F5_BIGIP_OpsMgr/blob/master/ABC.F5.BIGIP/ABC.F5.BIGIP/bin/Debug/ABC.F5.BIGIP.mpb) 
+[Source for VSAE 2015](https://github.com/Juanito99/F5_BIGIP_OpsMgr/tree/master/ABC.F5.BIGIP)
 
 
 
