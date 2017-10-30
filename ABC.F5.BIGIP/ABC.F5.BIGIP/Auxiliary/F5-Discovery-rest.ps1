@@ -103,7 +103,7 @@ function Get-AuthToken() {
     $headers = @{}
     $body    = "{'username':'$User','password':'$Pass','loginProviderName':'tmos'}"
      
-    $obj   = Invoke-RestMethod -Method POST -Headers $headers -Uri $link -Body $body
+    $obj   = Invoke-RestMethod -Method POST -Headers $headers -Uri $link -Body $body -UseBasicParsing
     $token = $obj.token.token
   }
 
@@ -129,7 +129,7 @@ function Get-RESTValues() {
   
   try {
   
-    $obj = Invoke-RestMethod -Method GET -Headers $headers -Uri $link
+    $obj = Invoke-RestMethod -Method GET -Headers $headers -Uri $link -UseBasicParsing
     $cleanOutPut.Value = $obj    
       
   } catch {
@@ -184,7 +184,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
   
   if ($f5HostUrl -ne '') {
   
-    $webInterfaceStatusCode = $(Invoke-WebRequest -Uri "https://$f5HostUrl/").StatusCode 
+    $webInterfaceStatusCode = $(Invoke-WebRequest -Uri "https://$f5HostUrl/" -UseBasicParsing).StatusCode 
 
     if ( $webInterfaceStatusCode -eq 200 ) {
       
