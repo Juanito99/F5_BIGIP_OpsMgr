@@ -3,7 +3,7 @@
   <Manifest>
     <Identity>
       <ID>ABC.F5.BIGIP</ID>
-      <Version>1.0.0.59</Version>
+      <Version>1.0.0.60</Version>
     </Identity>
     <Name>ABC.F5.BIGIP</Name>
     <References>
