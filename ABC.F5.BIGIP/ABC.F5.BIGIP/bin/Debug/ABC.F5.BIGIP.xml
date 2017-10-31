@@ -3,7 +3,7 @@
   <Manifest>
     <Identity>
       <ID>ABC.F5.BIGIP</ID>
-      <Version>1.0.0.55</Version>
+      <Version>1.0.0.59</Version>
     </Identity>
     <Name>ABC.F5.BIGIP</Name>
     <References>
@@ -6272,19 +6272,19 @@ $discoveryData]]></ScriptBody>
         <Presentation>
           <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
             <Name>State</Name>
-            <Id>SIG.F5.BIGIP.CPU</Id>
+            <Id>ABC.F5.BIGIP.CPU</Id>
           </ColumnInfo>
           <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
             <Name>Id</Name>
-            <Id>SIG.F5.BIGIP.CPU/Id</Id>
+            <Id>ABC.F5.BIGIP.CPU/Id</Id>
           </ColumnInfo>
           <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
             <Name>SystemNodeName</Name>
-            <Id>SIG.F5.BIGIP.CPU/SystemNodeName</Id>
+            <Id>ABC.F5.BIGIP.CPU/SystemNodeName</Id>
           </ColumnInfo>
           <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
             <Name>Key</Name>
-            <Id>SIG.F5.BIGIP.CPU/Key</Id>
+            <Id>ABC.F5.BIGIP.CPU/Key</Id>
           </ColumnInfo>
         </Presentation>
       </View>
@@ -6293,23 +6293,23 @@ $discoveryData]]></ScriptBody>
         <Presentation>
           <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
             <Name>State</Name>
-            <Id>SIG.F5.BIGIP.Disk</Id>
+            <Id>ABC.F5.BIGIP.Disk</Id>
           </ColumnInfo>
           <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
             <Name>TotalSize</Name>
-            <Id>SIG.F5.BIGIP.Disk/TotalSize</Id>
+            <Id>ABC.F5.BIGIP.Disk/TotalSize</Id>
           </ColumnInfo>
           <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
             <Name>FullPathAttr</Name>
-            <Id>SIG.F5.BIGIP.Disk/FullPathAttr</Id>
+            <Id>ABC.F5.BIGIP.Disk/FullPathAttr</Id>
           </ColumnInfo>
           <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
             <Name>SystemNodeName</Name>
-            <Id>SIG.F5.BIGIP.Disk/SystemNodeName</Id>
+            <Id>ABC.F5.BIGIP.Disk/SystemNodeName</Id>
           </ColumnInfo>
           <ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
             <Name>Key</Name>
-            <Id>SIG.F5.BIGIP.Disk/Key</Id>
+            <Id>ABC.F5.BIGIP.Disk/Key</Id>
           </ColumnInfo>
         </Presentation>
       </View>
@@ -6318,19 +6318,19 @@ $discoveryData]]></ScriptBody>
         <Presentation>
           <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
             <Name>State</Name>
-            <Id>SIG.F5.BIGIP.Memory</Id>
+            <Id>ABC.F5.BIGIP.Memory</Id>
           </ColumnInfo>
           <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
             <Name>MemoryTotal</Name>
-            <Id>SIG.F5.BIGIP.Memory/MemoryTotal</Id>
+            <Id>ABC.F5.BIGIP.Memory/MemoryTotal</Id>
           </ColumnInfo>
           <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
             <Name>SystemNodeName</Name>
-            <Id>SIG.F5.BIGIP.Memory/SystemNodeName</Id>
+            <Id>ABC.F5.BIGIP.Memory/SystemNodeName</Id>
           </ColumnInfo>
           <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
             <Name>Key</Name>
-            <Id>SIG.F5.BIGIP.Memory/Key</Id>
+            <Id>ABC.F5.BIGIP.Memory/Key</Id>
           </ColumnInfo>
         </Presentation>
       </View>
@@ -6339,27 +6339,27 @@ $discoveryData]]></ScriptBody>
         <Presentation>
           <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
             <Name>State</Name>
-            <Id>SIG.F5.BIGIP.NodeAddress</Id>
+            <Id>ABC.F5.BIGIP.NodeAddress</Id>
           </ColumnInfo>
           <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
             <Name>NodeAddressMonitorRule</Name>
-            <Id>SIG.F5.BIGIP.NodeAddress/NodeAddressMonitorRule</Id>
+            <Id>ABC.F5.BIGIP.NodeAddress/NodeAddressMonitorRule</Id>
           </ColumnInfo>
           <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
             <Name>NodeAddressSessionStatus</Name>
-            <Id>SIG.F5.BIGIP.NodeAddress/NodeAddressSessionStatus</Id>
+            <Id>ABC.F5.BIGIP.NodeAddress/NodeAddressSessionStatus</Id>
           </ColumnInfo>
           <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="400">
             <Name>NodeAddressName</Name>
-            <Id>SIG.F5.BIGIP.NodeAddress/NodeAddressName</Id>
+            <Id>ABC.F5.BIGIP.NodeAddress/NodeAddressName</Id>
           </ColumnInfo>
           <ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
             <Name>SystemNodeName</Name>
-            <Id>SIG.F5.BIGIP.NodeAddress/SystemNodeName</Id>
+            <Id>ABC.F5.BIGIP.NodeAddress/SystemNodeName</Id>
           </ColumnInfo>
           <ColumnInfo Index="5" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
             <Name>Key</Name>
-            <Id>SIG.F5.BIGIP.NodeAddress/Key</Id>
+            <Id>ABC.F5.BIGIP.NodeAddress/Key</Id>
           </ColumnInfo>
         </Presentation>
       </View>
@@ -6368,23 +6368,23 @@ $discoveryData]]></ScriptBody>
         <Presentation>
           <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
             <Name>State</Name>
-            <Id>SIG.F5.BIGIP.PoolStatus</Id>
+            <Id>ABC.F5.BIGIP.PoolStatus</Id>
           </ColumnInfo>
           <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
             <Name>PoolStatusEnabledState</Name>
-            <Id>SIG.F5.BIGIP.PoolStatus/PoolStatusEnabledState</Id>
+            <Id>ABC.F5.BIGIP.PoolStatus/PoolStatusEnabledState</Id>
           </ColumnInfo>
           <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="400">
             <Name>PoolStatusName</Name>
-            <Id>SIG.F5.BIGIP.PoolStatus/PoolStatusName</Id>
+            <Id>ABC.F5.BIGIP.PoolStatus/PoolStatusName</Id>
           </ColumnInfo>
           <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
             <Name>SystemNodeName</Name>
-            <Id>SIG.F5.BIGIP.PoolStatus/SystemNodeName</Id>
+            <Id>ABC.F5.BIGIP.PoolStatus/SystemNodeName</Id>
           </ColumnInfo>
           <ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
             <Name>Key</Name>
-            <Id>SIG.F5.BIGIP.PoolStatus/Key</Id>
+            <Id>ABC.F5.BIGIP.PoolStatus/Key</Id>
           </ColumnInfo>
         </Presentation>
       </View>
@@ -6393,19 +6393,19 @@ $discoveryData]]></ScriptBody>
         <Presentation>
           <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
             <Name>State</Name>
-            <Id>SIG.F5.BIGIP.SyncStatusItem</Id>
+            <Id>ABC.F5.BIGIP.SyncStatusItem</Id>
           </ColumnInfo>
           <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500">
             <Name>ItemName</Name>
-            <Id>SIG.F5.BIGIP.SyncStatusItem/ItemName</Id>
+            <Id>ABC.F5.BIGIP.SyncStatusItem/ItemName</Id>
           </ColumnInfo>
           <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
             <Name>SystemNodeName</Name>
-            <Id>SIG.F5.BIGIP.SyncStatusItem/SystemNodeName</Id>
+            <Id>ABC.F5.BIGIP.SyncStatusItem/SystemNodeName</Id>
           </ColumnInfo>
           <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
             <Name>Key</Name>
-            <Id>SIG.F5.BIGIP.SyncStatusItem/Key</Id>
+            <Id>ABC.F5.BIGIP.SyncStatusItem/Key</Id>
           </ColumnInfo>
         </Presentation>
       </View>
@@ -6420,23 +6420,23 @@ $discoveryData]]></ScriptBody>
         <Presentation>
           <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
             <Name>State</Name>
-            <Id>SIG.F5.BIGIP.TrafficGroupItem</Id>
+            <Id>ABC.F5.BIGIP.TrafficGroupItem</Id>
           </ColumnInfo>
           <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500">
             <Name>DeviceName</Name>
-            <Id>SIG.F5.BIGIP.TrafficGroupItem/DeviceName</Id>
+            <Id>ABC.F5.BIGIP.TrafficGroupItem/DeviceName</Id>
           </ColumnInfo>
           <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500">
             <Name>GroupName</Name>
-            <Id>SIG.F5.BIGIP.TrafficGroupItem/GroupName</Id>
+            <Id>ABC.F5.BIGIP.TrafficGroupItem/GroupName</Id>
           </ColumnInfo>
           <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
             <Name>SystemNodeName</Name>
-            <Id>SIG.F5.BIGIP.TrafficGroupItem/SystemNodeName</Id>
+            <Id>ABC.F5.BIGIP.TrafficGroupItem/SystemNodeName</Id>
           </ColumnInfo>
           <ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
             <Name>Key</Name>
-            <Id>SIG.F5.BIGIP.TrafficGroupItem/Key</Id>
+            <Id>ABC.F5.BIGIP.TrafficGroupItem/Key</Id>
           </ColumnInfo>
         </Presentation>
       </View>
@@ -6755,71 +6755,71 @@ Supplement: {2}
           <Description></Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5CPU">
-          <Name>CPU - Alerts</Name>
+          <Name>CPU</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5Disk">
-          <Name>Disk - Alerts</Name>
+          <Name>Disk</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5Memory">
-          <Name>Memory - Alerts</Name>
+          <Name>Memory</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5NodeAddress">
-          <Name>NodeAddress - Alerts</Name>
+          <Name>NodeAddress</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5PoolStatus">
-          <Name>PoolStatus - Alerts</Name>
+          <Name>PoolStatus</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5SyncItemStatus">
-          <Name>SyncItems - Alerts</Name>
+          <Name>SyncItems</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5TrafficGroupItem">
-          <Name>TrafficGroups - Alerts</Name>
+          <Name>TrafficGroups</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5CPU">
-          <Name>CPU - State</Name>
+          <Name>CPU</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5Disk">
-          <Name>Disk - State</Name>
+          <Name>Disk</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5Memory">
-          <Name>Memory - State</Name>
+          <Name>Memory</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5NodeAddr">
-          <Name>NodeAddrTable - State</Name>
+          <Name>NodeAddrTable</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5PoolStatus">
-          <Name>PoolStatus - State</Name>
+          <Name>PoolStatus</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5SyncStatusItem">
-          <Name>SyncStatusItem - State</Name>
+          <Name>SyncStatusItem</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5SyncStatusItemGroup">
-          <Name>SyncStatusItem Group - State</Name>
+          <Name>SyncStatusItem Group</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5System">
-          <Name>System - State</Name>
+          <Name>System / Appliance</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5TrafficGroupItem">
-          <Name>TrafficGroupItem - State</Name>
+          <Name>TrafficGroupItem</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5TrafficGroupItemGroup">
-          <Name>TrafficGroupItem Group - State</Name>
+          <Name>TrafficGroupItem Group</Name>
           <Description>Description for the new view</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP.View.State.MonitoringServer">

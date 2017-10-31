@@ -7,7 +7,7 @@
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.Alert.F5CPU</Id>
-        <DisplayName>CPU - Alerts</DisplayName>
+        <DisplayName>CPU</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.CPU</Target>
         <Category>Operations</Category>
@@ -20,7 +20,7 @@
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.Alert.F5Disk</Id>
-        <DisplayName>Disk - Alerts</DisplayName>
+        <DisplayName>Disk</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.Disk</Target>
         <Category>Operations</Category>
@@ -33,7 +33,7 @@
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.Alert.F5Memory</Id>
-        <DisplayName>Memory - Alerts</DisplayName>
+        <DisplayName>Memory</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.Memory</Target>
         <Category>Operations</Category>
@@ -46,7 +46,7 @@
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.Alert.F5NodeAddress</Id>
-        <DisplayName>NodeAddress - Alerts</DisplayName>
+        <DisplayName>NodeAddress</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.NodeAddress</Target>
         <Category>Operations</Category>
@@ -59,7 +59,7 @@
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.Alert.F5PoolStatus</Id>
-        <DisplayName>PoolStatus - Alerts</DisplayName>
+        <DisplayName>PoolStatus</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.PoolStatus</Target>
         <Category>Operations</Category>
@@ -72,7 +72,7 @@
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.Alert.F5SyncItemStatus</Id>
-        <DisplayName>SyncItems - Alerts</DisplayName>
+        <DisplayName>SyncItems</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.SyncStatusItem</Target>
         <Category>Operations</Category>
@@ -85,7 +85,7 @@
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.Alert.F5TrafficGroupItem</Id>
-        <DisplayName>TrafficGroups - Alerts</DisplayName>
+        <DisplayName>TrafficGroups</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.TrafficGroupItem</Target>
         <Category>Operations</Category>
@@ -95,11 +95,11 @@
       <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
         <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
-        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.CPU&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;Id&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.CPU/Id&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.CPU/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.CPU/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.CPU&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;Id&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.CPU/Id&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.CPU/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.CPU/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.State.F5CPU</Id>
-        <DisplayName>CPU - State</DisplayName>
+        <DisplayName>CPU</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.CPU</Target>
         <Category>Operations</Category>
@@ -109,11 +109,11 @@
       <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
         <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
-        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.Disk&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;TotalSize&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.Disk/TotalSize&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;FullPathAttr&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.Disk/FullPathAttr&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.Disk/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.Disk/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Disk&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;TotalSize&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Disk/TotalSize&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;FullPathAttr&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Disk/FullPathAttr&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Disk/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Disk/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.State.F5Disk</Id>
-        <DisplayName>Disk - State</DisplayName>
+        <DisplayName>Disk</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.Disk</Target>
         <Category>Operations</Category>
@@ -123,11 +123,11 @@
       <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
         <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
-        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.Memory&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;MemoryTotal&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.Memory/MemoryTotal&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.Memory/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.Memory/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Memory&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;MemoryTotal&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Memory/MemoryTotal&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Memory/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Memory/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.State.F5Memory</Id>
-        <DisplayName>Memory - State</DisplayName>
+        <DisplayName>Memory</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.Memory</Target>
         <Category>Operations</Category>
@@ -137,11 +137,11 @@
       <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
         <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
-        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.NodeAddress&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;NodeAddressMonitorRule&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.NodeAddress/NodeAddressMonitorRule&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;NodeAddressSessionStatus&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.NodeAddress/NodeAddressSessionStatus&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="400"&gt;&lt;Name&gt;NodeAddressName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.NodeAddress/NodeAddressName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.NodeAddress/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="5" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.NodeAddress/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;NodeAddressMonitorRule&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress/NodeAddressMonitorRule&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;NodeAddressSessionStatus&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress/NodeAddressSessionStatus&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="400"&gt;&lt;Name&gt;NodeAddressName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress/NodeAddressName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="5" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.State.F5NodeAddr</Id>
-        <DisplayName>NodeAddrTable - State</DisplayName>
+        <DisplayName>NodeAddrTable</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.NodeAddress</Target>
         <Category>Operations</Category>
@@ -151,11 +151,11 @@
       <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
         <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
-        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.PoolStatus&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;PoolStatusEnabledState&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.PoolStatus/PoolStatusEnabledState&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="400"&gt;&lt;Name&gt;PoolStatusName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.PoolStatus/PoolStatusName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.PoolStatus/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.PoolStatus/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.PoolStatus&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;PoolStatusEnabledState&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.PoolStatus/PoolStatusEnabledState&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="400"&gt;&lt;Name&gt;PoolStatusName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.PoolStatus/PoolStatusName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.PoolStatus/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.PoolStatus/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.State.F5PoolStatus</Id>
-        <DisplayName>PoolStatus - State</DisplayName>
+        <DisplayName>PoolStatus</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.PoolStatus</Target>
         <Category>Operations</Category>
@@ -165,11 +165,11 @@
       <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
         <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
-        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.SyncStatusItem&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500"&gt;&lt;Name&gt;ItemName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.SyncStatusItem/ItemName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.SyncStatusItem/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.SyncStatusItem/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.SyncStatusItem&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500"&gt;&lt;Name&gt;ItemName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.SyncStatusItem/ItemName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.SyncStatusItem/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.SyncStatusItem/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.State.F5SyncStatusItem</Id>
-        <DisplayName>SyncStatusItem - State</DisplayName>
+        <DisplayName>SyncStatusItem</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.SyncStatusItem</Target>
         <Category>Operations</Category>
@@ -182,7 +182,7 @@
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.State.F5SyncStatusItemGroup</Id>
-        <DisplayName>SyncStatusItem Group - State</DisplayName>
+        <DisplayName>SyncStatusItem Group</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.SyncStatusItem.Group</Target>
         <Category>Operations</Category>
@@ -195,7 +195,7 @@
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.State.F5System</Id>
-        <DisplayName>System - State</DisplayName>
+        <DisplayName>System / Appliance</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.System</Target>
         <Category>Operations</Category>
@@ -205,11 +205,11 @@
       <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
         <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
-        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.TrafficGroupItem&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500"&gt;&lt;Name&gt;DeviceName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.TrafficGroupItem/DeviceName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500"&gt;&lt;Name&gt;GroupName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.TrafficGroupItem/GroupName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.TrafficGroupItem/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;SIG.F5.BIGIP.TrafficGroupItem/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.TrafficGroupItem&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500"&gt;&lt;Name&gt;DeviceName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.TrafficGroupItem/DeviceName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500"&gt;&lt;Name&gt;GroupName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.TrafficGroupItem/GroupName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.TrafficGroupItem/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.TrafficGroupItem/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.State.F5TrafficGroupItem</Id>
-        <DisplayName>TrafficGroupItem - State</DisplayName>
+        <DisplayName>TrafficGroupItem</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.TrafficGroupItem</Target>
         <Category>Operations</Category>
@@ -222,14 +222,14 @@
         <Visible>true</Visible>
         <Accessibility>Internal</Accessibility>
         <Id>View.State.F5TrafficGroupItemGroup</Id>
-        <DisplayName>TrafficGroupItem Group - State</DisplayName>
+        <DisplayName>TrafficGroupItem Group</DisplayName>
         <Description>Description for the new view</Description>
         <Target>ABC.F5.BIGIP.TrafficGroupItem.Group</Target>
         <Category>Operations</Category>
       </CustomViewConfig>
     </Instance>
     <Instance ID="Instance2bc0cae02d8e4e7eb744beafee6757bc" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
-      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <CustomViewConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
         <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
         <Visible>true</Visible>
