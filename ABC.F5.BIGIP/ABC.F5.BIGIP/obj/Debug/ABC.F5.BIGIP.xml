@@ -3,7 +3,7 @@
   <Manifest>
     <Identity>
       <ID>ABC.F5.BIGIP</ID>
-      <Version>1.0.0.40</Version>
+      <Version>1.0.0.55</Version>
     </Identity>
     <Name>ABC.F5.BIGIP</Name>
     <References>
@@ -1062,6 +1062,20 @@ foreach($f5HostItem in $F5BigIPHosts) {
       </UnitMonitorType>
     </MonitorTypes>
   </TypeDefinitions>
+  <Categories>
+    <Category ID="ABC.F5.BIGIP.F5CPU.Category" Target="ABC.F5.BIGIP.F5CPU.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="ABC.F5.BIGIP.F5Memory.Category" Target="ABC.F5.BIGIP.F5Memory.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="ABC.F5.BIGIP.F5Disk.Category" Target="ABC.F5.BIGIP.F5Disk.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="ABC.F5.BIGIP.F5Pool.Category" Target="ABC.F5.BIGIP.F5Pool.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="ABC.F5.BIGIP.F5Node.Category" Target="ABC.F5.BIGIP.F5Node.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="ABC.F5.BIGIP.F5System.Category" Target="ABC.F5.BIGIP.F5System.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="ABC.F5.BIGIP.F5PoolGroup.Category" Target="ABC.F5.BIGIP.F5PoolGroup.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="ABC.F5.BIGIP.F5NodeGroup.Category" Target="ABC.F5.BIGIP.F5NodeGroup.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="ABC.F5.BIGIP.F5TrafficGroupItem.Category" Target="ABC.F5.BIGIP.F5TrafficGroupItem.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="ABC.F5.BIGIP.F5TrafficGroupItemGroup.Category" Target="ABC.F5.BIGIP.F5TrafficGroupItemGroup.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="ABC.F5.BIGIP.F5SyncStatus.Category" Target="ABC.F5.BIGIP.F5SyncStatus.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="ABC.F5.BIGIP.F5SyncStatus.CategoryGroup" Target="ABC.F5.BIGIP.F5SyncStatusGroup.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+  </Categories>
   <Monitoring>
     <Discoveries>
       <Discovery ID="ABC.F5.BIGIP.Discovery.F5.BIGIP.System.System" Target="ABC.F5.BIGIP.MonitoringServer" Enabled="true" ConfirmDelivery="false" Remotable="true" Priority="Normal">
@@ -6231,6 +6245,247 @@ $discoveryData]]></ScriptBody>
     </Monitors>
   </Monitoring>
   <Presentation>
+    <Views>
+      <View ID="ABC.F5.BIGIP.View.Alert.F5CPU" Accessibility="Internal" Target="ABC.F5.BIGIP.CPU" TypeID="SC!Microsoft.SystemCenter.AlertViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.Alert.F5Disk" Accessibility="Internal" Target="ABC.F5.BIGIP.Disk" TypeID="SC!Microsoft.SystemCenter.AlertViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.Alert.F5Memory" Accessibility="Internal" Target="ABC.F5.BIGIP.Memory" TypeID="SC!Microsoft.SystemCenter.AlertViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.Alert.F5NodeAddress" Accessibility="Internal" Target="ABC.F5.BIGIP.NodeAddress" TypeID="SC!Microsoft.SystemCenter.AlertViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.Alert.F5PoolStatus" Accessibility="Internal" Target="ABC.F5.BIGIP.PoolStatus" TypeID="SC!Microsoft.SystemCenter.AlertViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.Alert.F5SyncItemStatus" Accessibility="Internal" Target="ABC.F5.BIGIP.SyncStatusItem" TypeID="SC!Microsoft.SystemCenter.AlertViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.Alert.F5TrafficGroupItem" Accessibility="Internal" Target="ABC.F5.BIGIP.TrafficGroupItem" TypeID="SC!Microsoft.SystemCenter.AlertViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.State.F5CPU" Accessibility="Internal" Target="ABC.F5.BIGIP.CPU" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
+            <Name>State</Name>
+            <Id>SIG.F5.BIGIP.CPU</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
+            <Name>Id</Name>
+            <Id>SIG.F5.BIGIP.CPU/Id</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>SystemNodeName</Name>
+            <Id>SIG.F5.BIGIP.CPU/SystemNodeName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>Key</Name>
+            <Id>SIG.F5.BIGIP.CPU/Key</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.State.F5Disk" Accessibility="Internal" Target="ABC.F5.BIGIP.Disk" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
+            <Name>State</Name>
+            <Id>SIG.F5.BIGIP.Disk</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
+            <Name>TotalSize</Name>
+            <Id>SIG.F5.BIGIP.Disk/TotalSize</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
+            <Name>FullPathAttr</Name>
+            <Id>SIG.F5.BIGIP.Disk/FullPathAttr</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>SystemNodeName</Name>
+            <Id>SIG.F5.BIGIP.Disk/SystemNodeName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>Key</Name>
+            <Id>SIG.F5.BIGIP.Disk/Key</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.State.F5Memory" Accessibility="Internal" Target="ABC.F5.BIGIP.Memory" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
+            <Name>State</Name>
+            <Id>SIG.F5.BIGIP.Memory</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
+            <Name>MemoryTotal</Name>
+            <Id>SIG.F5.BIGIP.Memory/MemoryTotal</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>SystemNodeName</Name>
+            <Id>SIG.F5.BIGIP.Memory/SystemNodeName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>Key</Name>
+            <Id>SIG.F5.BIGIP.Memory/Key</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.State.F5NodeAddr" Accessibility="Internal" Target="ABC.F5.BIGIP.NodeAddress" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
+            <Name>State</Name>
+            <Id>SIG.F5.BIGIP.NodeAddress</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
+            <Name>NodeAddressMonitorRule</Name>
+            <Id>SIG.F5.BIGIP.NodeAddress/NodeAddressMonitorRule</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
+            <Name>NodeAddressSessionStatus</Name>
+            <Id>SIG.F5.BIGIP.NodeAddress/NodeAddressSessionStatus</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="400">
+            <Name>NodeAddressName</Name>
+            <Id>SIG.F5.BIGIP.NodeAddress/NodeAddressName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
+            <Name>SystemNodeName</Name>
+            <Id>SIG.F5.BIGIP.NodeAddress/SystemNodeName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="5" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
+            <Name>Key</Name>
+            <Id>SIG.F5.BIGIP.NodeAddress/Key</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.State.F5PoolStatus" Accessibility="Internal" Target="ABC.F5.BIGIP.PoolStatus" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
+            <Name>State</Name>
+            <Id>SIG.F5.BIGIP.PoolStatus</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
+            <Name>PoolStatusEnabledState</Name>
+            <Id>SIG.F5.BIGIP.PoolStatus/PoolStatusEnabledState</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="400">
+            <Name>PoolStatusName</Name>
+            <Id>SIG.F5.BIGIP.PoolStatus/PoolStatusName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
+            <Name>SystemNodeName</Name>
+            <Id>SIG.F5.BIGIP.PoolStatus/SystemNodeName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
+            <Name>Key</Name>
+            <Id>SIG.F5.BIGIP.PoolStatus/Key</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.State.F5SyncStatusItem" Accessibility="Internal" Target="ABC.F5.BIGIP.SyncStatusItem" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
+            <Name>State</Name>
+            <Id>SIG.F5.BIGIP.SyncStatusItem</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500">
+            <Name>ItemName</Name>
+            <Id>SIG.F5.BIGIP.SyncStatusItem/ItemName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
+            <Name>SystemNodeName</Name>
+            <Id>SIG.F5.BIGIP.SyncStatusItem/SystemNodeName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
+            <Name>Key</Name>
+            <Id>SIG.F5.BIGIP.SyncStatusItem/Key</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.State.F5SyncStatusItemGroup" Accessibility="Internal" Target="ABC.F5.BIGIP.SyncStatusItem.Group" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.State.F5System" Accessibility="Internal" Target="ABC.F5.BIGIP.System" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.State.F5TrafficGroupItem" Accessibility="Internal" Target="ABC.F5.BIGIP.TrafficGroupItem" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
+            <Name>State</Name>
+            <Id>SIG.F5.BIGIP.TrafficGroupItem</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500">
+            <Name>DeviceName</Name>
+            <Id>SIG.F5.BIGIP.TrafficGroupItem/DeviceName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500">
+            <Name>GroupName</Name>
+            <Id>SIG.F5.BIGIP.TrafficGroupItem/GroupName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
+            <Name>SystemNodeName</Name>
+            <Id>SIG.F5.BIGIP.TrafficGroupItem/SystemNodeName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340">
+            <Name>Key</Name>
+            <Id>SIG.F5.BIGIP.TrafficGroupItem/Key</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.State.F5TrafficGroupItemGroup" Accessibility="Internal" Target="ABC.F5.BIGIP.TrafficGroupItem.Group" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+      <View ID="ABC.F5.BIGIP.View.State.MonitoringServer" Accessibility="Internal" Target="ABC.F5.BIGIP.MonitoringServer" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+    </Views>
+    <Folders>
+      <Folder ID="ABC.F5.BIGIP.Folders" Accessibility="Public" ParentFolder="SC!Microsoft.SystemCenter.Monitoring.ViewFolder.Root" />
+      <Folder ID="ABC.F5.BIGIP.Folders.Alerts" Accessibility="Public" ParentFolder="ABC.F5.BIGIP.Folders" />
+      <Folder ID="ABC.F5.BIGIP.Folders.State" Accessibility="Public" ParentFolder="ABC.F5.BIGIP.Folders" />
+    </Folders>
+    <FolderItems>
+      <FolderItem ElementID="ABC.F5.BIGIP.View.Alert.F5CPU" Folder="ABC.F5.BIGIP.Folders.Alerts" ID="ABC.F5.BIGIP.View.Alert.F5CPU.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.Alert.F5Disk" Folder="ABC.F5.BIGIP.Folders.Alerts" ID="ABC.F5.BIGIP.View.Alert.F5Disk.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.Alert.F5Memory" Folder="ABC.F5.BIGIP.Folders.Alerts" ID="ABC.F5.BIGIP.View.Alert.F5Memory.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.Alert.F5NodeAddress" Folder="ABC.F5.BIGIP.Folders.Alerts" ID="ABC.F5.BIGIP.View.Alert.F5NodeAddress.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.Alert.F5PoolStatus" Folder="ABC.F5.BIGIP.Folders.Alerts" ID="ABC.F5.BIGIP.View.Alert.F5PoolStatus.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.Alert.F5SyncItemStatus" Folder="ABC.F5.BIGIP.Folders.Alerts" ID="ABC.F5.BIGIP.View.Alert.F5SyncItemStatus.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.Alert.F5TrafficGroupItem" Folder="ABC.F5.BIGIP.Folders.Alerts" ID="ABC.F5.BIGIP.View.Alert.F5TrafficGroupItem.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.State.F5CPU" Folder="ABC.F5.BIGIP.Folders.State" ID="ABC.F5.BIGIP.View.State.F5CPU.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.State.F5Disk" Folder="ABC.F5.BIGIP.Folders.State" ID="ABC.F5.BIGIP.View.State.F5Disk.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.State.F5Memory" Folder="ABC.F5.BIGIP.Folders.State" ID="ABC.F5.BIGIP.View.State.F5Memory.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.State.F5NodeAddr" Folder="ABC.F5.BIGIP.Folders.State" ID="ABC.F5.BIGIP.View.State.F5NodeAddr.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.State.F5PoolStatus" Folder="ABC.F5.BIGIP.Folders.State" ID="ABC.F5.BIGIP.View.State.F5PoolStatus.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.State.F5SyncStatusItem" Folder="ABC.F5.BIGIP.Folders.State" ID="ABC.F5.BIGIP.View.State.F5SyncStatusItem.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.State.F5SyncStatusItemGroup" Folder="ABC.F5.BIGIP.Folders.State" ID="ABC.F5.BIGIP.View.State.F5SyncStatusItemGroup.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.State.F5System" Folder="ABC.F5.BIGIP.Folders.State" ID="ABC.F5.BIGIP.View.State.F5System.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.State.F5TrafficGroupItem" Folder="ABC.F5.BIGIP.Folders.State" ID="ABC.F5.BIGIP.View.State.F5TrafficGroupItem.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.State.F5TrafficGroupItemGroup" Folder="ABC.F5.BIGIP.Folders.State" ID="ABC.F5.BIGIP.View.State.F5TrafficGroupItemGroup.FolderItem" />
+      <FolderItem ElementID="ABC.F5.BIGIP.View.State.MonitoringServer" Folder="ABC.F5.BIGIP.Folders.State" ID="ABC.F5.BIGIP.View.State.MonitoringServer.FolderItem" />
+    </FolderItems>
+    <ImageReferences>
+      <ImageReference ElementID="ABC.F5.BIGIP.CPU" ImageID="ABC.F5.BIGIP.F5CPU.Icon" />
+      <ImageReference ElementID="ABC.F5.BIGIP.Memory" ImageID="ABC.F5.BIGIP.F5Memory.Icon" />
+      <ImageReference ElementID="ABC.F5.BIGIP.Disk" ImageID="ABC.F5.BIGIP.F5Disk.Icon" />
+      <ImageReference ElementID="ABC.F5.BIGIP.PoolStatus" ImageID="ABC.F5.BIGIP.F5Pool.Icon" />
+      <ImageReference ElementID="ABC.F5.BIGIP.NodeAddress" ImageID="ABC.F5.BIGIP.F5Node.Icon" />
+      <ImageReference ElementID="ABC.F5.BIGIP.System" ImageID="ABC.F5.BIGIP.F5System.Icon" />
+      <ImageReference ElementID="ABC.F5.BIGIP.PoolStatus.Group" ImageID="ABC.F5.BIGIP.F5PoolGroup.Icon" />
+      <ImageReference ElementID="ABC.F5.BIGIP.NodeAddress.Group" ImageID="ABC.F5.BIGIP.F5NodeGroup.Icon" />
+      <ImageReference ElementID="ABC.F5.BIGIP.TrafficGroupItem" ImageID="ABC.F5.BIGIP.F5TrafficGroupItem.Icon" />
+      <ImageReference ElementID="ABC.F5.BIGIP.TrafficGroupItem.Group" ImageID="ABC.F5.BIGIP.F5TrafficGroupItemGroup.Icon" />
+      <ImageReference ElementID="ABC.F5.BIGIP.SyncStatusItem" ImageID="ABC.F5.BIGIP.F5SyncStatus.Icon" />
+      <ImageReference ElementID="ABC.F5.BIGIP.SyncStatusItem.Group" ImageID="ABC.F5.BIGIP.F5SyncStatusGroup.Icon" />
+    </ImageReferences>
     <StringResources>
       <StringResource ID="ABC.F5.BIGIP.Monitor.F5.BIGIP.System.AlertMessage" />
       <StringResource ID="ABC.F5.BIGIP.Monitor.F5.BIGIP.Application.NodeAddr.AlertMessage" />
@@ -6486,6 +6741,90 @@ Supplement: {2}
         <DisplayString ElementID="ABC.F5.BIGIP.Monitor.F5.BIGIP.System.SysDepOn.Mem">
           <Name>Monitor F5 BIGIP System System Depends On Memory</Name>
           <Description>Description for new dependency monitor.</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.Folders">
+          <Name>ABC F5 BIGIP</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.Folders.Alerts">
+          <Name>Alerts</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.Folders.State">
+          <Name>State</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5CPU">
+          <Name>CPU - Alerts</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5Disk">
+          <Name>Disk - Alerts</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5Memory">
+          <Name>Memory - Alerts</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5NodeAddress">
+          <Name>NodeAddress - Alerts</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5PoolStatus">
+          <Name>PoolStatus - Alerts</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5SyncItemStatus">
+          <Name>SyncItems - Alerts</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.Alert.F5TrafficGroupItem">
+          <Name>TrafficGroups - Alerts</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5CPU">
+          <Name>CPU - State</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5Disk">
+          <Name>Disk - State</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5Memory">
+          <Name>Memory - State</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5NodeAddr">
+          <Name>NodeAddrTable - State</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5PoolStatus">
+          <Name>PoolStatus - State</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5SyncStatusItem">
+          <Name>SyncStatusItem - State</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5SyncStatusItemGroup">
+          <Name>SyncStatusItem Group - State</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5System">
+          <Name>System - State</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5TrafficGroupItem">
+          <Name>TrafficGroupItem - State</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.State.F5TrafficGroupItemGroup">
+          <Name>TrafficGroupItem Group - State</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="ABC.F5.BIGIP.View.State.MonitoringServer">
+          <Name>MonitoringServer - State (not monitored)</Name>
+          <Description>Server that checks the F5.</Description>
         </DisplayString>
         <DisplayString ElementID="ABC.F5.BIGIP">
           <Name>ABC F5 BIGIP </Name>
@@ -6850,4 +7189,18 @@ Supplement: {2}
       <KnowledgeArticles></KnowledgeArticles>
     </LanguagePack>
   </LanguagePacks>
+  <Resources>
+    <Image ID="ABC.F5.BIGIP.F5CPU.Icon" FileName="f5cpu.png" Accessibility="Public" HasNullStream="false" Comment="F5 CPU Icon" />
+    <Image ID="ABC.F5.BIGIP.F5Memory.Icon" FileName="f5memory.png" Accessibility="Public" HasNullStream="false" Comment="F5 CPU Memory" />
+    <Image ID="ABC.F5.BIGIP.F5Disk.Icon" FileName="f5disk.png" Accessibility="Public" HasNullStream="false" Comment="F5 CPU Disk" />
+    <Image ID="ABC.F5.BIGIP.F5Pool.Icon" FileName="f5pool.png" Accessibility="Public" HasNullStream="false" Comment="F5 Pool" />
+    <Image ID="ABC.F5.BIGIP.F5Node.Icon" FileName="F5node.png" Accessibility="Public" HasNullStream="false" Comment="F5 Node" />
+    <Image ID="ABC.F5.BIGIP.F5System.Icon" FileName="f5system.png" Accessibility="Public" HasNullStream="false" Comment="F5 F5System" />
+    <Image ID="ABC.F5.BIGIP.F5PoolGroup.Icon" FileName="f5poolgroup.png" Accessibility="Public" HasNullStream="false" Comment="F5 Pool Group" />
+    <Image ID="ABC.F5.BIGIP.F5NodeGroup.Icon" FileName="f5nodegroup.png" Accessibility="Public" HasNullStream="false" Comment="F5 Node Group" />
+    <Image ID="ABC.F5.BIGIP.F5TrafficGroupItem.Icon" FileName="f5trafficgroupitem.png" Accessibility="Public" HasNullStream="false" Comment="F5 Traffic Group Item" />
+    <Image ID="ABC.F5.BIGIP.F5TrafficGroupItemGroup.Icon" FileName="f5trafficgroupitemgroup.png" Accessibility="Public" HasNullStream="false" Comment="F5 Traffic Group Item Group" />
+    <Image ID="ABC.F5.BIGIP.F5SyncStatus.Icon" FileName="f5syncstatus.png" Accessibility="Public" HasNullStream="false" Comment="F5 Sync Status Item" />
+    <Image ID="ABC.F5.BIGIP.F5SyncStatusGroup.Icon" FileName="f5syncstatusgroup.png" Accessibility="Public" HasNullStream="false" Comment="F5 Sync Status Group" />
+  </Resources>
 </ManagementPack>

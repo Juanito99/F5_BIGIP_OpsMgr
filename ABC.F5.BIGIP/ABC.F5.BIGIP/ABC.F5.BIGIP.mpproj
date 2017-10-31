@@ -59,6 +59,16 @@
       <SubType>Code</SubType>
       <DependentUpon>Health Model\Monitors.mptg</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\Folders.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Presentation\Icons.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Presentation\Views.mptg.mpx">
+      <SubType>Code</SubType>
+      <DependentUpon>Presentation\Views.mptg</DependentUpon>
+    </Compile>
     <Compile Include="Project.mpx">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +83,8 @@
   <ItemGroup>
     <Folder Include="Auxiliary" />
     <Folder Include="Health Model" />
+    <Folder Include="Presentation" />
+    <Folder Include="Presentation\Icons" />
     <Folder Include="Service Model" />
     <Folder Include="Service Model\Classes" />
     <Folder Include="Service Model\Discoveries" />
@@ -89,6 +101,46 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Health Model\Monitors.mptg">
+      <SubType>Content</SubType>
+      <Generator>FragmentGenerator</Generator>
+    </Content>
+    <EmbeddedResource Include="Presentation\Icons\f5cpu.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Icons\f5disk.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Icons\f5memory.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Icons\f5node.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Icons\f5nodegroup.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Icons\f5pool.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Icons\f5poolgroup.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Icons\f5syncstatus.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Icons\f5syncstatusgroup.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Icons\f5system.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Icons\f5trafficgroupitem.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Icons\f5trafficgroupitemgroup.png">
+      <SubType>Content</SubType>
+    </EmbeddedResource>
+    <Content Include="Presentation\Views.mptg">
       <SubType>Content</SubType>
       <Generator>FragmentGenerator</Generator>
     </Content>
