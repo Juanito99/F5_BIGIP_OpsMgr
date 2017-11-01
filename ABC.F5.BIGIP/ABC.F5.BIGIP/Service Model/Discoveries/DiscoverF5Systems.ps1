@@ -7,7 +7,7 @@ $Global:Error.Clear()
 $script:ErrorView      = 'NormalView'
 $ErrorActionPreference = 'Continue'
 
-$F5BigIPHosts = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
+$F5BigIPHosts   = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
 $discoveryFiles = Get-ChildItem -Path $tempPath -Filter '*F5-Discovery-*.json' | Select-Object -ExpandProperty Name
 
 
@@ -61,36 +61,40 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$displayName = 'F5-CPU ' + $cpuID + ' On ' + $systemNodeNameKey
 				$key         = $systemNodeNameKey + 'F5-CPU' + $cpuID
 
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.CPU']$")			
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.CPU']/Id$",$cpuID)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.CPU']/SystemNodeName$",$systemNodeNameKey)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.CPU']/Key$",$key)
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
-				$discoveryData.AddInstance($instance)
+				if ($_.CPUId) {
+					$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.CPU']$")			
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.CPU']/Id$",$cpuID)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.CPU']/SystemNodeName$",$systemNodeNameKey)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.CPU']/Key$",$key)
+					$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
+					$discoveryData.AddInstance($instance)
+				}
 			}	
 
 		} elseif ($discoveryItem -eq 'RemotePath') { 
 					
+			$shareName = ''	
 			$shares = Invoke-Expression -Command "net share"		
 						
-			if ($shares -like "*$tempPath*") {
-				$foo = 'Not required to share directory; exiting to avoid empty discovery.'				
-				Exit 				
+			if ($shares -like "*OurF5InfoForSCOM*") {
+				$foo = 'Not required to share directory; exiting to avoid empty discovery.'								
 			} else {
 				$shareName = 'OurF5InfoForSCOM' + '$'			
-				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "						
-				#Eventually use icacls to permit domain computers read on the NTFS level.	
-				$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
-				$displayName = 'F5 MonitoringServer RuntimeInfo for ' + $systemNodeNameKey
-				$Key         = $displayName
+				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "											
+			}	
 
+			$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
+			$displayName = 'F5 MonitoringServer RuntimeInfo for ' + $systemNodeNameKey
+			$Key         = $displayName
+
+			if($shareName) {
 				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']$")			
 				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/RemotePath$",$remotePath)	
 				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/Key$",$Key)	
 				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
 				$discoveryData.AddInstance($instance)
 				$discoveryData
-			}	
+			}			
 		
 		} elseif ($discoveryItem -eq 'Disks') {			
 
@@ -100,13 +104,15 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$displayName = 'F5-Disk ' + $FullPath + ' On ' + $systemNodeNameKey 
 				$key         = $systemNodeNameKey + 'F5-Disk' + $FullPath
 
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.Disk']$")			
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Disk']/FullPathAttr$",$FullPath)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Disk']/TotalSize$",$TotalSize)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Disk']/SystemNodeName$",$systemNodeNameKey)
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Disk']/Key$",$key)
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
-				$discoveryData.AddInstance($instance)
+				if ($_.FullPath) {
+					$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.Disk']$")			
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Disk']/FullPathAttr$",$FullPath)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Disk']/TotalSize$",$TotalSize)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Disk']/SystemNodeName$",$systemNodeNameKey)
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Disk']/Key$",$key)
+					$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+					$discoveryData.AddInstance($instance)
+				}				
 			}
 
 		} elseif ($discoveryItem -eq 'Memory') {		
@@ -116,16 +122,19 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$displayName = 'F5-Memory On ' + $systemNodeNameKey  
 				$key         = $systemNodeNameKey + 'F5-Memory'
 		
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.Memory']$")						
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Memory']/MemoryTotal$",$MemoryTotal)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Memory']/SystemNodeName$",$systemNodeNameKey)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Memory']/Key$",$key)	
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)	
-				$discoveryData.AddInstance($instance)
+				if ($_.MemoryTotal) {
+					$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.Memory']$")						
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Memory']/MemoryTotal$",$MemoryTotal)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Memory']/SystemNodeName$",$systemNodeNameKey)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.Memory']/Key$",$key)	
+					$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)	
+					$discoveryData.AddInstance($instance)
+				}				
 			}
 
-		} elseif ($discoveryItem -eq 'Info') {				
-	
+		} elseif ($discoveryItem -eq 'Info') {		
+			$generalInfo    = ''
+			$productInfo    = ''	
 			$generalInfo    = $($discoveryFileContent.GeneralInfo)
 			$productInfo    = $($discoveryFileContent.ProductInfo)
 			$systemNodeName = $generalInfo.SystemNodeName
@@ -137,19 +146,28 @@ foreach($f5HostItem in $F5BigIPHosts) {
 			$productVersion = $productInfo.ProductVersion
 			$IPAddress      = [System.Net.Dns]::GetHostByName($systemNodeName).AddressList.IPAddressToString.ToString()
 
+			if ($IPAddres -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
+				$foo = 'No action required, valid IP.'
+			} else {
+				$IPAddress = 'No reverse DNS record found. (Just for your information.)'
+			}
+
+
 			$displayName    = $productName + ' ' + $systemNodeName + 'F5 System'
 
-			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.System']$")	
-			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/SystemNodeName$",$systemNodeName)				
-			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/SystemRelease$",$systemRelease)	
-			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/SystemName$",$systemName)				
-			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/ProductDate$",$productDate)			
-			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/ProductBuild$",$productBuild)			
-			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/ProductName$",$productName)			
-			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/ProductVersion$",$productVersion)			
-			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/IPAddress$",$IPAddress)		
-			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
-			$discoveryData.AddInstance($instance)
+			if($generalInfo -and $productInfo) {
+				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.System']$")	
+				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/SystemNodeName$",$systemNodeName)				
+				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/SystemRelease$",$systemRelease)	
+				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/SystemName$",$systemName)				
+				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/ProductDate$",$productDate)			
+				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/ProductBuild$",$productBuild)			
+				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/ProductName$",$productName)			
+				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/ProductVersion$",$productVersion)			
+				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.System']/IPAddress$",$IPAddress)		
+				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+				$discoveryData.AddInstance($instance)
+			}
 
 		} else {
 

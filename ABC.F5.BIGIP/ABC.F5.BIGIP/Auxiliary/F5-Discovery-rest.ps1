@@ -2,15 +2,15 @@
 
 #region PREWORK Disabling the certificate validations
 add-type -TypeDefinition @"
-    using System.Net;
-    using System.Security.Cryptography.X509Certificates;
-    public class TrustAllCertsPolicy : ICertificatePolicy {
-        public bool CheckValidationResult(
-            ServicePoint srvPoint, X509Certificate certificate,
-            WebRequest request, int certificateProblem) {
-            return true;
-        }
-    }
+	using System.Net;
+	using System.Security.Cryptography.X509Certificates;
+	public class TrustAllCertsPolicy : ICertificatePolicy {
+		public bool CheckValidationResult(
+			ServicePoint srvPoint, X509Certificate certificate,
+			WebRequest request, int certificateProblem) {
+			return true;
+		}
+	}
 "@
 [Net.ServicePointManager]::CertificatePolicy = New-Object -TypeName TrustAllCertsPolicy
 #endregion PREWORK
@@ -25,7 +25,7 @@ $ErrorActionPreference = 'Continue'
 $User  = Get-ItemProperty -Path 'HKLM:\SOFTWARE\ABCIT\F5BigIPMonitoringServer' | Select-Object -ExpandProperty RESTUsr
 $Pass  = Get-ItemProperty -Path 'HKLM:\SOFTWARE\ABCIT\F5BigIPMonitoringServer' | Select-Object -ExpandProperty RESTPwd
 $AUTH_TOKEN = $null
-    
+	
 $restURIs = @{
   'Disk'     = '/mgmt/tm/sys/disk/logical-disk'
   'Memory'   = '/mgmt/tm/sys/memory'
@@ -60,19 +60,19 @@ $startObj    = New-Object -TypeName psobject -Property $sProperties
 Function Write-ErrorLog {
 
   param (
-    [Parameter(Mandatory=$true)]
-    [string]$functionName,    
-    [Parameter(Mandatory=$true)]
-    [string]$logName,
-    [Parameter(Mandatory=$true)]
-    [Object]$err=$null
+	[Parameter(Mandatory=$true)]
+	[string]$functionName,    
+	[Parameter(Mandatory=$true)]
+	[string]$logName,
+	[Parameter(Mandatory=$true)]
+	[Object]$err=$null
   )
 
   
   if($err) {
-    "Function-Name: $($functionName) Err: $($err)" | Out-File -FilePath $logName -Append
+	"Function-Name: $($functionName) Err: $($err)" | Out-File -FilePath $logName -Append
   } else {
-    "Function-Name: $($functionName)" | Out-File -FilePath $logName -Append  
+	"Function-Name: $($functionName)" | Out-File -FilePath $logName -Append  
   }
 
   $Error `
@@ -81,7 +81,7 @@ Function Write-ErrorLog {
   | Format-Table -Property Count,Name -AutoSize | Out-File -FilePath $logName -Append    
 
   if($Error[0].Exception.InnerException) {
-    $Error[0].Exception.InnerException | Out-File -FilePath $logName -Append
+	$Error[0].Exception.InnerException | Out-File -FilePath $logName -Append
   }
 
   "`n`n" | Out-File -FilePath $logName -Append
@@ -95,16 +95,16 @@ function Get-AuthToken() {
   $token = $null
   
   if ( $null -ne $AUTH_TOKEN ) {
-    $token = $AUTH_TOKEN
+	$token = $AUTH_TOKEN
   } else {
-    $uri   = "/mgmt/shared/authn/login"    
-    $link  = "https://" + $F5BigIPHost + $uri
+	$uri   = "/mgmt/shared/authn/login"    
+	$link  = "https://" + $F5BigIPHost + $uri
 
-    $headers = @{}
-    $body    = "{'username':'$User','password':'$Pass','loginProviderName':'tmos'}"
-     
-    $obj   = Invoke-RestMethod -Method POST -Headers $headers -Uri $link -Body $body -UseBasicParsing
-    $token = $obj.token.token
+	$headers = @{}
+	$body    = "{'username':'$User','password':'$Pass','loginProviderName':'tmos'}"
+	 
+	$obj   = Invoke-RestMethod -Method POST -Headers $headers -Uri $link -Body $body -UseBasicParsing
+	$token = $obj.token.token
   }
 
   return $token
@@ -115,10 +115,10 @@ function Get-AuthToken() {
 function Get-RESTValues() {
 
   param (
-    [Parameter(Mandatory=$true)]
-    [string]$uri,
-    [string]$F5BigIPHost,    
-    [ref]$cleanOutPut
+	[Parameter(Mandatory=$true)]
+	[string]$uri,
+	[string]$F5BigIPHost,    
+	[ref]$cleanOutPut
   )
 
   $rtn = $null
@@ -129,24 +129,24 @@ function Get-RESTValues() {
   
   try {
   
-    $obj = Invoke-RestMethod -Method GET -Headers $headers -Uri $link -UseBasicParsing
-    $cleanOutPut.Value = $obj    
-      
+	$obj = Invoke-RestMethod -Method GET -Headers $headers -Uri $link -UseBasicParsing
+	$cleanOutPut.Value = $obj    
+	  
   } catch {
   
-    if($Error) {    
-      Write-ErrorLog -logName $logName -functionName $($MyInvocation.MyCommand.Name) -err $Error
-      $rtn = $false
-    } else {
-      $foo = 'No need to report error.'
-    }    
+	if($Error) {    
+	  Write-ErrorLog -logName $logName -functionName $($MyInvocation.MyCommand.Name) -err $Error
+	  $rtn = $false
+	} else {
+	  $foo = 'No need to report error.'
+	}    
 
   }
   
   if($obj -and $rtn -eq $null) {
-    $rtn = $true
+	$rtn = $true
   } else {
-    $rtn = $false
+	$rtn = $false
   } 
   
   $rtn       
@@ -163,146 +163,156 @@ foreach($f5HostItem in $F5BigIPHosts) {
   $f5HostUrl       = ''
 
   if ($f5HostItem.HostName -match '[a-zA-Z0-9]{3,}') {
-    $f5HostName = $f5HostItem.HostName
+	$f5HostName = $f5HostItem.HostName
   }
 
   if ($f5HostItem.IPAddress -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
-    $f5HostIPAddress = $f5HostItem.IPAddress
+	$f5HostIPAddress = $f5HostItem.IPAddress
   }
 
   if ($f5HostName -ne '') {
-    if (Test-Connection -ComputerName $f5HostName -Count 2 -Quiet) {
-      $f5HostUrl = $f5HostName
-    }
+	if (Test-Connection -ComputerName $f5HostName -Count 2 -Quiet) {
+	  $f5HostUrl = $f5HostName
+	}
   }
    
    if (($f5HostUrl -eq '') -and ($f5HostIPAddress -ne '')) {
-    if (Test-Connection -ComputerName $f5HostIPAddress -Count 2 -Quiet) {     
-      $f5HostUrl = $f5HostIPAddress
-    } 
+	if (Test-Connection -ComputerName $f5HostIPAddress -Count 2 -Quiet) {     
+	  $f5HostUrl = $f5HostIPAddress
+	} 
    }     
   
+	if ($f5HostItem.Port) {
+		if ($f5HostItem.Port -match '\d') {
+			$f5HostUrl += ':' + $f5HostItem.Port
+		}				
+	}     
+
   if ($f5HostUrl -ne '') {
   
-    $webInterfaceStatusCode = $(Invoke-WebRequest -Uri "https://$f5HostUrl/" -UseBasicParsing).StatusCode 
+	$webInterfaceStatusCode = $(Invoke-WebRequest -Uri "https://$f5HostUrl/" -UseBasicParsing).StatusCode 
 
-    if ( $webInterfaceStatusCode -eq 200 ) {
-      
-      #region GET-DISKS
-      $F5Disks          = New-Object -TypeName System.Collections.ArrayList
-      $tmpObject        = New-Object Object
-      $rtnGetRestValues = Get-RESTValues -uri $restURIs.Disk -cleanOutPut([ref]$tmpObject) -F5BigIPHost $f5HostUrl
-      $tmpObject.Items | ForEach-Object {
-        $disk = [PSCustomObject]@{
-          'FullPath'  = $_.fullPath
-          'TotalSize' = $_.size
-          'Free'      =  $_.vgFree
-          'InUse'     = $_.vgInUse
-        }
-        $null = $F5Disks.Add($disk)
-      }      
-      #endregion GET-DISKS  
+	if ( $webInterfaceStatusCode -eq 200 ) {
+	  
+	  #region GET-DISKS
+	  $F5Disks          = New-Object -TypeName System.Collections.ArrayList
+	  $tmpObject        = New-Object Object
+	  $rtnGetRestValues = Get-RESTValues -uri $restURIs.Disk -cleanOutPut([ref]$tmpObject) -F5BigIPHost $f5HostUrl
+	  $tmpObject.Items | ForEach-Object {
+		$disk = [PSCustomObject]@{
+		  'FullPath'  = $_.fullPath
+		  'TotalSize' = $_.size
+		  'Free'      =  $_.vgFree
+		  'InUse'     = $_.vgInUse
+		}
+		$null = $F5Disks.Add($disk)
+	  }      
+	  #endregion GET-DISKS  
 
-      #region GET-MEMORY      
-      $tmpObject        = New-Object Object
-      $rtnGetRestValues = Get-RESTValues -uri $restURIs.Memory -cleanOutPut([ref]$tmpObject) -F5BigIPHost $f5HostUrl
-    
-      $memoryTotal = $tmpObject.entries.'https://localhost/mgmt/tm/sys/memory/memory-host'.nestedStats.entries.'https://localhost/mgmt/tm/sys/memory/memory-host/0'.nestedStats.entries.memoryTotal.value
-      $memoryUsed  = $tmpObject.entries.'https://localhost/mgmt/tm/sys/memory/memory-host'.nestedStats.entries.'https://localhost/mgmt/tm/sys/memory/memory-host/0'.nestedStats.entries.memoryUsed.value
-      $memoryFree  = $tmpObject.entries.'https://localhost/mgmt/tm/sys/memory/memory-host'.nestedStats.entries.'https://localhost/mgmt/tm/sys/memory/memory-host/0'.nestedStats.entries.memoryFree.value
-            
-      $F5Memory = [PSCustomObject]@{
-        'MemoryTotal'       = $memoryTotal
-        'MemoryUsed'        = $memoryUsed
-        'MemoryFree'        = $memoryFree
-        'MemoryUsedPercent' = [int](($memoryUsed / $memoryTotal) * 100)
-      }           
-      #endregion GET-MEMORY    
+	  #region GET-MEMORY      
+	  $tmpObject        = New-Object Object
+	  $rtnGetRestValues = Get-RESTValues -uri $restURIs.Memory -cleanOutPut([ref]$tmpObject) -F5BigIPHost $f5HostUrl
+	
+	  $memoryTotal = $tmpObject.entries.'https://localhost/mgmt/tm/sys/memory/memory-host'.nestedStats.entries.'https://localhost/mgmt/tm/sys/memory/memory-host/0'.nestedStats.entries.memoryTotal.value
+	  $memoryUsed  = $tmpObject.entries.'https://localhost/mgmt/tm/sys/memory/memory-host'.nestedStats.entries.'https://localhost/mgmt/tm/sys/memory/memory-host/0'.nestedStats.entries.memoryUsed.value
+	  $memoryFree  = $tmpObject.entries.'https://localhost/mgmt/tm/sys/memory/memory-host'.nestedStats.entries.'https://localhost/mgmt/tm/sys/memory/memory-host/0'.nestedStats.entries.memoryFree.value
+			
+	  $F5Memory = [PSCustomObject]@{
+		'MemoryTotal'       = $memoryTotal
+		'MemoryUsed'        = $memoryUsed
+		'MemoryFree'        = $memoryFree
+		'MemoryUsedPercent' = [int](($memoryUsed / $memoryTotal) * 100)
+	  }           
+	  #endregion GET-MEMORY    
 
-      #region GET-CPU    
-      $F5CPUs           = New-Object System.Collections.ArrayList
-      $tmpObject        = New-Object Object
-      $rtnGetRestValues = Get-RESTValues -uri $restURIs.CPU -cleanOutPut([ref]$tmpObject) -F5BigIPHost $f5HostUrl
+	  #region GET-CPU    
+	  $F5CPUs           = New-Object System.Collections.ArrayList
+	  $tmpObject        = New-Object Object
+	  $rtnGetRestValues = Get-RESTValues -uri $restURIs.CPU -cleanOutPut([ref]$tmpObject) -F5BigIPHost $f5HostUrl
 
-      $entries = $tmpObject.entries.'https://localhost/mgmt/tm/sys/cpu/0'.nestedStats.entries.'https://localhost/mgmt/tm/sys/cpu/0/cpuInfo'.nestedStats.entries
+	  $entries = $tmpObject.entries.'https://localhost/mgmt/tm/sys/cpu/0'.nestedStats.entries.'https://localhost/mgmt/tm/sys/cpu/0/cpuInfo'.nestedStats.entries
 
-      $entries | ForEach-Object {  
+	  $entries | ForEach-Object {  
   
-        $entryCollection = $_
-        $(($entryCollection |Get-Member -MemberType Properties).Name) | ForEach-Object {
+		$entryCollection = $_
+		$(($entryCollection |Get-Member -MemberType Properties).Name) | ForEach-Object {
   
-          $subEntryName      = $_
-          $subEntryCPUId     = $entryCollection.$subEntryName.nestedStats.entries.cpuId.value      
-          $subEntryAvgIdle   = $entryCollection.$subEntryName.nestedStats.entries.fiveMinAvgIdle.value
-          $subEntryAvgSystem = $entryCollection.$subEntryName.nestedStats.entries.fiveMinAvgSystem.value
-          $subEntryAvgUser   = $entryCollection.$subEntryName.nestedStats.entries.fiveMinAvgUser.value
+		  $subEntryName      = $_
+		  $subEntryCPUId     = $entryCollection.$subEntryName.nestedStats.entries.cpuId.value      
+		  $subEntryAvgIdle   = $entryCollection.$subEntryName.nestedStats.entries.fiveMinAvgIdle.value
+		  $subEntryAvgSystem = $entryCollection.$subEntryName.nestedStats.entries.fiveMinAvgSystem.value
+		  $subEntryAvgUser   = $entryCollection.$subEntryName.nestedStats.entries.fiveMinAvgUser.value
 
-          $F5CPU = [PSCustomObject] @{
-            'CPUId'  = $subEntryCPUId
-            'Idle'   = $subEntryAvgIdle
-            'System' = $subEntryAvgSystem
-            'User'   = $subEntryAvgUser
-          }        
+		  $F5CPU = [PSCustomObject] @{
+			'CPUId'  = $subEntryCPUId
+			'Idle'   = $subEntryAvgIdle
+			'System' = $subEntryAvgSystem
+			'User'   = $subEntryAvgUser
+		  }        
 
-          $null = $F5CPUs.Add($F5CPU)
+		  $null = $F5CPUs.Add($F5CPU)
 
-        } # END $(($entryCollection |Get-Member -MemberType Properties).Name) | ForEach-Object  {}
+		} # END $(($entryCollection |Get-Member -MemberType Properties).Name) | ForEach-Object  {}
 
-      } #END $entries | ForEach-Object {}  
-      #endregion GET-CPU        
+	  } #END $entries | ForEach-Object {}  
+	  #endregion GET-CPU        
 
-      #region GET-SERVICES
-      $F5Services       = New-Object System.Collections.ArrayList
-      $tmpObject        = New-Object Object
-      $rtnGetRestValues = Get-RESTValues -uri $restURIs.Services -cleanOutPut([ref]$tmpObject) -F5BigIPHost $f5HostUrl   
+	  #region GET-SERVICES
+	  $F5Services       = New-Object System.Collections.ArrayList
+	  $tmpObject        = New-Object Object
+	  $rtnGetRestValues = Get-RESTValues -uri $restURIs.Services -cleanOutPut([ref]$tmpObject) -F5BigIPHost $f5HostUrl   
 
-      $tmpObject.entries | ForEach-Object {  
+	  $tmpObject.entries | ForEach-Object {  
   
-        $entryCollection = $_
+		$entryCollection = $_
   
-        $(($entryCollection |Get-Member -MemberType Properties).Name) | ForEach-Object {  
+		$(($entryCollection |Get-Member -MemberType Properties).Name) | ForEach-Object {  
 
-          $subEntryName        = $_
-          $subEntryKey         = $entryCollection.$subEntryName.nestedStats.entries.key.description
-          $subEntryrespProcess = $entryCollection.$subEntryName.nestedStats.entries.respProcess.description
-          $subEntryStatus      = $entryCollection.$subEntryName.nestedStats.entries.enabled.description
+		  $subEntryName        = $_
+		  $subEntryKey         = $entryCollection.$subEntryName.nestedStats.entries.key.description
+		  $subEntryrespProcess = $entryCollection.$subEntryName.nestedStats.entries.respProcess.description
+		  $subEntryStatus      = $entryCollection.$subEntryName.nestedStats.entries.enabled.description
 
-          $F5Service = [PSCustomObject] @{
-            'Key'     = $subEntryKey
-            'Process' = $subEntryrespProcess
-            'Status'  = $subEntryStatus          
-          }
-        
-          $null = $F5Services.Add($F5Service)
+		  $F5Service = [PSCustomObject] @{
+			'Key'     = $subEntryKey
+			'Process' = $subEntryrespProcess
+			'Status'  = $subEntryStatus          
+		  }
+		
+		  $null = $F5Services.Add($F5Service)
 
-        } #END $(($entryCollection |Get-Member -MemberType Properties).Name) | ForEach-Object {}  
-    
-      } #END $tmpObject.entries | ForEach-Object {}        
-      #endregion GET-SERVICES    
+		} #END $(($entryCollection |Get-Member -MemberType Properties).Name) | ForEach-Object {}  
+	
+	  } #END $tmpObject.entries | ForEach-Object {}        
+	  #endregion GET-SERVICES    
 
-      #region WRITE-TO-JSON-File    
-      $json = [PSCustomObject] @{'F5Disks' = $F5Disks}
-      $invenFilePath = $tempPath + '\' + $f5HostUrl + '_' + $jsonInventoryFileName + '-' + 'Disks' + '.json'
-      $json | ConvertTo-Json | Out-File -FilePath $invenFilePath -Encoding unicode
+	  #region WRITE-TO-JSON-File
+		if ($f5HostUrl -match ':') {
+			$f5HostUrl = $f5HostUrl.Substring(0,$f5HostUrl.IndexOf(':'))
+		}    
 
-      $json = [PSCustomObject] @{'F5Memory'= $F5Memory}
-      $invenFilePath = $tempPath + '\' + $f5HostUrl + '_' + $jsonInventoryFileName + '-' + 'Memory' + '.json'
-      $json | ConvertTo-Json | Out-File -FilePath $invenFilePath -Encoding unicode 
+		$json = [PSCustomObject] @{'F5Disks' = $F5Disks}
+		$invenFilePath = $tempPath + '\' + $f5HostUrl + '_' + $jsonInventoryFileName + '-' + 'Disks' + '.json'
+		$json | ConvertTo-Json | Out-File -FilePath $invenFilePath -Encoding unicode
 
-      $json = [PSCustomObject] @{'F5CPU' = $F5CPUs}
-      $invenFilePath = $tempPath + '\' + $f5HostUrl + '_' + $jsonInventoryFileName + '-' + 'CPUs' + '.json'
-      $json | ConvertTo-Json | Out-File -FilePath $invenFilePath -Encoding unicode         
+		$json = [PSCustomObject] @{'F5Memory'= $F5Memory}
+		$invenFilePath = $tempPath + '\' + $f5HostUrl + '_' + $jsonInventoryFileName + '-' + 'Memory' + '.json'
+		$json | ConvertTo-Json | Out-File -FilePath $invenFilePath -Encoding unicode 
 
-      $json = [PSCustomObject] @{'F5Services' = $F5Services}
-      $invenFilePath = $tempPath + '\' + $f5HostUrl + '_' + $jsonInventoryFileName + '-' + 'Services' + '.json'
-      $json | ConvertTo-Json | Out-File -FilePath $invenFilePath -Encoding unicode                           
-      #endregion WRITE-TO-JSON-File
+		$json = [PSCustomObject] @{'F5CPU' = $F5CPUs}
+		$invenFilePath = $tempPath + '\' + $f5HostUrl + '_' + $jsonInventoryFileName + '-' + 'CPUs' + '.json'
+		$json | ConvertTo-Json | Out-File -FilePath $invenFilePath -Encoding unicode         
 
-    } else {
+		$json = [PSCustomObject] @{'F5Services' = $F5Services}
+		$invenFilePath = $tempPath + '\' + $f5HostUrl + '_' + $jsonInventoryFileName + '-' + 'Services' + '.json'
+		$json | ConvertTo-Json | Out-File -FilePath $invenFilePath -Encoding unicode                           
+	  #endregion WRITE-TO-JSON-File
+
+	} else {
   
-      Write-ErrorLog -logName $logName -functionName $($MyInvocation.MyCommand.Name) -err "Statuscode other than 200 returned. - StatusCode: $webInterfaceStatusCode"
+	  Write-ErrorLog -logName $logName -functionName $($MyInvocation.MyCommand.Name) -err "Statuscode other than 200 returned. - StatusCode: $webInterfaceStatusCode"
   
-    } #END if ( $webInterfaceStatusCode -eq 200 )
+	} #END if ( $webInterfaceStatusCode -eq 200 )
   
   } #END if ($f5HostUrl -ne '') 
 

@@ -62,13 +62,15 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$key              = $systemNodeNameKey + 'F5-Pool' + $poolName
 				$poolEnabledState = $_.ltmPoolStatusEnabledState
 
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.PoolStatus']$")			
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.PoolStatus']/PoolStatusEnabledState$",$poolEnabledState)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.PoolStatus']/PoolStatusName$",$poolName)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.PoolStatus']/SystemNodeName$",$systemNodeNameKey)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.PoolStatus']/Key$",$key)
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
-				$discoveryData.AddInstance($instance)
+				if ($_.ltmPoolStatusName) {
+					$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.PoolStatus']$")			
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.PoolStatus']/PoolStatusEnabledState$",$poolEnabledState)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.PoolStatus']/PoolStatusName$",$poolName)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.PoolStatus']/SystemNodeName$",$systemNodeNameKey)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.PoolStatus']/Key$",$key)
+					$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
+					$discoveryData.AddInstance($instance)
+				}
 			} #END $discoveryFileContent.PoolStatus | ForEach-Object {}
 
 		} elseif ($discoveryItem -eq 'NodeAddrTable') {
@@ -81,15 +83,17 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$nodeAddressMonitorRule   = $_.ltmNodeAddrMonitorRule
 				$nodeAddressEnabledState  = $_.ltmNodeAddrEnabledState								  
 
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']$")			
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/NodeAddressName$",$nodeAddressName)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/NodeAddressEnabledState$",$nodeAddressEnabledState)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/NodeAddressMonitorRule$",$nodeAddressMonitorRule)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/NodeAddressSessionStatus$",$nodeAddressSessionStatus)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/SystemNodeName$",$systemNodeNameKey)
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/Key$",$key)
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
-				$discoveryData.AddInstance($instance)
+				if($_.ltmNodeAddrName) {
+					$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']$")			
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/NodeAddressName$",$nodeAddressName)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/NodeAddressEnabledState$",$nodeAddressEnabledState)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/NodeAddressMonitorRule$",$nodeAddressMonitorRule)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/NodeAddressSessionStatus$",$nodeAddressSessionStatus)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/SystemNodeName$",$systemNodeNameKey)
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.NodeAddress']/Key$",$key)
+					$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+					$discoveryData.AddInstance($instance)
+				}				
 			} #EMD $discoveryFileContent.NodeAddrTable | ForEach-Object {}
 
 		} elseif ($discoveryItem -eq 'TrafficGroup') {
@@ -104,13 +108,15 @@ foreach($f5HostItem in $F5BigIPHosts) {
 		
 				$api.LogScriptEvent('ABC.F5.BIGIP DiscoveryF5Applications.ps1',402,2,"DiscoveryF5Applicaitons Found TrafficGroup key: $($key)")
 
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']$")						
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']/DeviceName$",$groupDeviceName)					
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']/GroupName$",$groupName)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']/SystemNodeName$",$systemNodeNameKey)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']/Key$",$key)	
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)	
-				$discoveryData.AddInstance($instance)
+				if ($_.sysCmTrafficGroupStatusDeviceName) {
+					$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']$")						
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']/DeviceName$",$groupDeviceName)					
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']/GroupName$",$groupName)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']/SystemNodeName$",$systemNodeNameKey)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']/Key$",$key)	
+					$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)	
+					$discoveryData.AddInstance($instance)
+				}
 			}
 
 		} elseif ($discoveryItem -eq 'SyncStatus') {			
@@ -121,12 +127,14 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$displayName       = 'F5-SyncStatus Item ' + $syncItemName  + ' On ' + $systemNodeNameKey  
 				$key               = $systemNodeNameKey + 'F5-SyncStatusItem' + $syncItemName									
 
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.SyncStatusItem']$")						
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.SyncStatusItem']/ItemName$",$syncItemName)									
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.SyncStatusItem']/SystemNodeName$",$systemNodeNameKey)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.SyncStatusItem']/Key$",$key)	
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)	
-				$discoveryData.AddInstance($instance)
+				if ($_.sysCmSyncStatusDetailsDetails) {
+					$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.SyncStatusItem']$")						
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.SyncStatusItem']/ItemName$",$syncItemName)									
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.SyncStatusItem']/SystemNodeName$",$systemNodeNameKey)	
+					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.SyncStatusItem']/Key$",$key)	
+					$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)	
+					$discoveryData.AddInstance($instance)
+				}
 			}
 
 		} else {
