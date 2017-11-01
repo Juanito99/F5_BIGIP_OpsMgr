@@ -5,7 +5,7 @@
     <DeploymentCredentials>AskForCredentials</DeploymentCredentials>
     <DeploymentCookie />
     <DeploymentAutoIncrementVersion>True</DeploymentAutoIncrementVersion>
-    <DeploymentNextVersion>1.0.0.61</DeploymentNextVersion>
+    <DeploymentNextVersion>1.0.0.62</DeploymentNextVersion>
     <DeploymentStartAction>DeployOnly</DeploymentStartAction>
     <DeploymentWebConsoleUrl />
     <DeploymentCommand />

@@ -3,7 +3,7 @@
   <Manifest>
     <Identity>
       <ID>ABC.F5.BIGIP</ID>
-      <Version>1.0.0.60</Version>
+      <Version>1.0.0.61</Version>
     </Identity>
     <Name>ABC.F5.BIGIP</Name>
     <References>
@@ -1166,7 +1166,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$foo = 'Not required to share directory; exiting to avoid empty discovery.'				
 				Exit 				
 			} else {
-				$shareName = (New-Guid).ToString() + '$'			
+				$shareName = 'OurF5InfoForSCOM' + '$'			
 				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "						
 				#Eventually use icacls to permit domain computers read on the NTFS level.	
 				$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
@@ -1369,7 +1369,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$foo = 'Not required to share directory; exiting to avoid empty discovery.'				
 				Exit 				
 			} else {
-				$shareName = (New-Guid).ToString() + '$'			
+				$shareName = 'OurF5InfoForSCOM' + '$'			
 				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "						
 				#Eventually use icacls to permit domain computers read on the NTFS level.	
 				$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
@@ -1572,7 +1572,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$foo = 'Not required to share directory; exiting to avoid empty discovery.'				
 				Exit 				
 			} else {
-				$shareName = (New-Guid).ToString() + '$'			
+				$shareName = 'OurF5InfoForSCOM' + '$'			
 				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "						
 				#Eventually use icacls to permit domain computers read on the NTFS level.	
 				$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
@@ -1906,7 +1906,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$foo = 'Not required to share directory; exiting to avoid empty discovery.'				
 				Exit 				
 			} else {
-				$shareName = (New-Guid).ToString() + '$'			
+				$shareName = 'OurF5InfoForSCOM' + '$'			
 				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "						
 				#Eventually use icacls to permit domain computers read on the NTFS level.	
 				$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
@@ -2109,7 +2109,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$foo = 'Not required to share directory; exiting to avoid empty discovery.'				
 				Exit 				
 			} else {
-				$shareName = (New-Guid).ToString() + '$'			
+				$shareName = 'OurF5InfoForSCOM' + '$'			
 				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "						
 				#Eventually use icacls to permit domain computers read on the NTFS level.	
 				$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
