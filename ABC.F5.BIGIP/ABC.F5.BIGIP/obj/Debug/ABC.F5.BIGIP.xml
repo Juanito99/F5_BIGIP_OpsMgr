@@ -3,7 +3,7 @@
   <Manifest>
     <Identity>
       <ID>ABC.F5.BIGIP</ID>
-      <Version>1.0.0.59</Version>
+      <Version>1.0.0.77</Version>
     </Identity>
     <Name>ABC.F5.BIGIP</Name>
     <References>
@@ -335,10 +335,11 @@ $Global:Error.Clear()
 $script:ErrorView      = 'NormalView'
 $ErrorActionPreference = 'Continue'
 
-$classF5MonServerRuntimeInfo         = Get-SCOMClass -Name 'ABC.F5.BIGIP.MonitoringServerRuntimeInfo'
-$classF5MonServerRuntimeInfoInstance = Get-SCOMClassInstance -Class $classF5MonServerRuntimeInfo
-$tempPath                            = $classF5MonServerRuntimeInfoInstance.'[ABC.F5.BIGIP.MonitoringServerRuntimeInfo].RemotePath'.Value
+$classF5MonServerRuntimeInfo               = Get-SCOMClass -Name 'ABC.F5.BIGIP.MonitoringServerRuntimeInfo'
+$classF5MonServerRuntimeInfoInstance       = Get-SCOMClassInstance -Class $classF5MonServerRuntimeInfo
+$classF5MonServerRuntimeInfoInstanceSingle = $classF5MonServerRuntimeInfoInstance | Select-Object -First 1
 
+$tempPath       = $classF5MonServerRuntimeInfoInstanceSingle.'[ABC.F5.BIGIP.MonitoringServerRuntimeInfo].RemotePath'.Value
 $testedAt       = "Tested on: $(Get-Date -Format u) / $(([TimeZoneInfo]::Local).DisplayName)"
 
 $F5BigIPHosts   = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
@@ -387,7 +388,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 		$discoverySystemFile        = $discoveryFiles | Where-Object {($_ -match 'GeneralInfo') -and ($_ -match $f5HostUrl)}
 		$discoverySystemFileContent = Get-Content -Path $($tempPath + '\' + $discoverySystemFile) | ConvertFrom-Json
 		$systemNodeNameKey          = $($discoverySystemFileContent.GeneralInfo.SystemNodeName)
-	
+				
 		if ($MonitorItem -eq 'CPU') {	
 
 			$classF5CPU          = Get-SCOMClass -Name 'ABC.F5.BIGIP.CPU'
@@ -613,10 +614,11 @@ $Global:Error.Clear()
 $script:ErrorView      = 'NormalView'
 $ErrorActionPreference = 'Continue'
 
-$classF5MonServerRuntimeInfo         = Get-SCOMClass -Name 'ABC.F5.BIGIP.MonitoringServerRuntimeInfo'
-$classF5MonServerRuntimeInfoInstance = Get-SCOMClassInstance -Class $classF5MonServerRuntimeInfo
+$classF5MonServerRuntimeInfo               = Get-SCOMClass -Name 'ABC.F5.BIGIP.MonitoringServerRuntimeInfo'
+$classF5MonServerRuntimeInfoInstance       = Get-SCOMClassInstance -Class $classF5MonServerRuntimeInfo
+$classF5MonServerRuntimeInfoInstanceSingle = $classF5MonServerRuntimeInfoInstance | Select-Object -First 1
 
-$tempPath = $classF5MonServerRuntimeInfoInstance.'[ABC.F5.BIGIP.MonitoringServerRuntimeInfo].RemotePath'.Value
+$tempPath = $classF5MonServerRuntimeInfoInstanceSingle.'[ABC.F5.BIGIP.MonitoringServerRuntimeInfo].RemotePath'.Value
 $testedAt = "Tested on: $(Get-Date -Format u) / $(([TimeZoneInfo]::Local).DisplayName)"
 
 $F5BigIPHosts   = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
@@ -719,19 +721,18 @@ foreach($f5HostItem in $F5BigIPHosts) {
 
 				} 
 		
-			} 
-
-		} elseif ($MonitorItem -eq 'NodeAddr') {	
-
+			} 		
+		} elseif ($MonitorItem -eq 'NodeAddrTable') {				
+			
 			$classF5NodeAddr          = Get-SCOMClass -Name 'ABC.F5.BIGIP.NodeAddress'
-			$classF5NodeAddrInstances = Get-SCOMClassInstance -Class $classF5NodeAddr			
+			$classF5NodeAddrInstances = Get-SCOMClassInstance -Class $classF5NodeAddr									
 
 			$classF5NodeAddrInstances | Where-Object {$_.'[ABC.F5.BIGIP.NodeAddress].SystemNodeName'.Value -eq $systemNodeNameKey} | ForEach-Object {						
-				
+								
 				$f5NodeAddr             = $_
 				[string]$f5NodeAddrName = [string]$($f5NodeAddr.'[ABC.F5.BIGIP.NodeAddress].NodeAddressName'.Value)
-				[string]$key            = [string]$($f5NodeAddr.'[ABC.F5.BIGIP.NodeAddress].Key'.Value) 			
-							
+				[string]$key            = [string]$($f5NodeAddr.'[ABC.F5.BIGIP.NodeAddress].Key'.Value) 									
+						
 				$discoveryFileContent.NodeAddrTable | Where-Object {$_.ltmNodeAddrName -eq $f5NodeAddrName} | ForEach-Object {		  		
 							
 					$nodeAddressName         = $_.ltmNodeAddrName
@@ -740,11 +741,11 @@ foreach($f5HostItem in $F5BigIPHosts) {
 					$nodeAddressMonitorRule  = $_.ltmNodeAddrMonitorRule
 					$nodeAddrMonitorStatus   = $_.ltmNodeAddrMonitorStatus
 					$nodeAddressEnabledState = $_.ltmNodeAddrEnabledState			
-					$nodeAddrSessionStatus   = $_.ltmNodeAddrSessionStatus
-			
-					$rawInfo                 = "NodeAddrName: $($nodeAddressName) Key: $($key) EnableState: $($nodeAddressEnabledState)"				
-
-					If($nodeAddrSessionStatus -ieq "Enabled" ) {
+					$nodeAddrSessionStatus   = $_.ltmNodeAddrSessionStatus			
+					 
+					$rawInfo                 = "NodeAddrName: $($nodeAddressName) Key: $($key) EnableState: $($nodeAddressEnabledState)"								
+										
+					if($nodeAddrSessionStatus -ieq "Enabled" ) {
 						if($nodeAddrMonitorStatus -ieq "up") {
 							$state      = 'Green'
 							$supplement = "NodeAddr is up."
@@ -755,7 +756,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 					} else {
 						$state      = 'Green'
 						$supplement = "NodeAddr not enabled. - Not in use, so also no problem."
-					}							
+					}												
 
 					$bag = $api.CreatePropertybag()					
 					$bag.AddValue("NodeAddrName",$nodeAddressName)
@@ -1099,7 +1100,6 @@ $ErrorActionPreference = 'Continue'
 $F5BigIPHosts   = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
 $discoveryFiles = Get-ChildItem -Path $tempPath -Filter '*F5-Discovery-*.json' | Select-Object -ExpandProperty Name
 
-
 foreach($f5HostItem in $F5BigIPHosts) {
   
   $f5HostName      = ''
@@ -1160,30 +1160,26 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				}
 			}	
 
-		} elseif ($discoveryItem -eq 'RemotePath') { 
+		} elseif ($discoveryItem -eq 'RemotePath') { 			
 					
-			$shareName = ''	
-			$shares = Invoke-Expression -Command "net share"		
+			$shareName = 'OurF5InfoForSCOM' + '$'			
+			$shares    = Invoke-Expression -Command "net share"		
 						
 			if ($shares -like "*OurF5InfoForSCOM*") {
 				$foo = 'Not required to share directory; exiting to avoid empty discovery.'								
-			} else {
-				$shareName = 'OurF5InfoForSCOM' + '$'			
+			} else {				
 				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "											
 			}	
-
+			
 			$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
 			$displayName = 'F5 MonitoringServer RuntimeInfo for ' + $systemNodeNameKey
 			$Key         = $displayName
-
-			if($shareName) {
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']$")			
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/RemotePath$",$remotePath)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/Key$",$Key)	
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
-				$discoveryData.AddInstance($instance)
-				$discoveryData
-			}			
+						
+			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']$")			
+			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/RemotePath$",$remotePath)	
+			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/Key$",$Key)	
+			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
+			$discoveryData.AddInstance($instance)						
 		
 		} elseif ($discoveryItem -eq 'Disks') {			
 
@@ -1235,7 +1231,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 			$productVersion = $productInfo.ProductVersion
 			$IPAddress      = [System.Net.Dns]::GetHostByName($systemNodeName).AddressList.IPAddressToString.ToString()
 
-			if ($IPAddres -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
+			if ($IPAddress -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
 				$foo = 'No action required, valid IP.'
 			} else {
 				$IPAddress = 'No reverse DNS record found. (Just for your information.)'
@@ -1305,7 +1301,7 @@ $discoveryData]]></ScriptBody>
           <DiscoveryClass TypeID="ABC.F5.BIGIP.MonitoringServerRuntimeInfo" />
         </DiscoveryTypes>
         <DataSource ID="DS" TypeID="Windows!Microsoft.Windows.TimedPowerShell.DiscoveryProvider">
-          <IntervalSeconds>3600</IntervalSeconds>
+          <IntervalSeconds>300</IntervalSeconds>
           <SyncTime />
           <ScriptName>DiscoverF5Systems.ps1</ScriptName>
           <ScriptBody><![CDATA[param($sourceId,$managedEntityId,$discoveryItem,$tempPath,$f5MonServer)
@@ -1319,7 +1315,6 @@ $ErrorActionPreference = 'Continue'
 
 $F5BigIPHosts   = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
 $discoveryFiles = Get-ChildItem -Path $tempPath -Filter '*F5-Discovery-*.json' | Select-Object -ExpandProperty Name
-
 
 foreach($f5HostItem in $F5BigIPHosts) {
   
@@ -1381,30 +1376,26 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				}
 			}	
 
-		} elseif ($discoveryItem -eq 'RemotePath') { 
+		} elseif ($discoveryItem -eq 'RemotePath') { 			
 					
-			$shareName = ''	
-			$shares = Invoke-Expression -Command "net share"		
+			$shareName = 'OurF5InfoForSCOM' + '$'			
+			$shares    = Invoke-Expression -Command "net share"		
 						
 			if ($shares -like "*OurF5InfoForSCOM*") {
 				$foo = 'Not required to share directory; exiting to avoid empty discovery.'								
-			} else {
-				$shareName = 'OurF5InfoForSCOM' + '$'			
+			} else {				
 				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "											
 			}	
-
+			
 			$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
 			$displayName = 'F5 MonitoringServer RuntimeInfo for ' + $systemNodeNameKey
 			$Key         = $displayName
-
-			if($shareName) {
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']$")			
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/RemotePath$",$remotePath)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/Key$",$Key)	
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
-				$discoveryData.AddInstance($instance)
-				$discoveryData
-			}			
+						
+			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']$")			
+			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/RemotePath$",$remotePath)	
+			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/Key$",$Key)	
+			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
+			$discoveryData.AddInstance($instance)						
 		
 		} elseif ($discoveryItem -eq 'Disks') {			
 
@@ -1456,7 +1447,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 			$productVersion = $productInfo.ProductVersion
 			$IPAddress      = [System.Net.Dns]::GetHostByName($systemNodeName).AddressList.IPAddressToString.ToString()
 
-			if ($IPAddres -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
+			if ($IPAddress -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
 				$foo = 'No action required, valid IP.'
 			} else {
 				$IPAddress = 'No reverse DNS record found. (Just for your information.)'
@@ -1517,7 +1508,7 @@ $discoveryData]]></ScriptBody>
               <Value>$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$</Value>
             </Parameter>
           </Parameters>
-          <TimeoutSeconds>300</TimeoutSeconds>
+          <TimeoutSeconds>180</TimeoutSeconds>
         </DataSource>
       </Discovery>
       <Discovery ID="ABC.F5.BIGIP.Discovery.F5.BIGIP.System.Memory" Target="ABC.F5.BIGIP.MonitoringServer" Enabled="true" ConfirmDelivery="false" Remotable="true" Priority="Normal">
@@ -1540,7 +1531,6 @@ $ErrorActionPreference = 'Continue'
 
 $F5BigIPHosts   = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
 $discoveryFiles = Get-ChildItem -Path $tempPath -Filter '*F5-Discovery-*.json' | Select-Object -ExpandProperty Name
-
 
 foreach($f5HostItem in $F5BigIPHosts) {
   
@@ -1602,30 +1592,26 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				}
 			}	
 
-		} elseif ($discoveryItem -eq 'RemotePath') { 
+		} elseif ($discoveryItem -eq 'RemotePath') { 			
 					
-			$shareName = ''	
-			$shares = Invoke-Expression -Command "net share"		
+			$shareName = 'OurF5InfoForSCOM' + '$'			
+			$shares    = Invoke-Expression -Command "net share"		
 						
 			if ($shares -like "*OurF5InfoForSCOM*") {
 				$foo = 'Not required to share directory; exiting to avoid empty discovery.'								
-			} else {
-				$shareName = 'OurF5InfoForSCOM' + '$'			
+			} else {				
 				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "											
 			}	
-
+			
 			$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
 			$displayName = 'F5 MonitoringServer RuntimeInfo for ' + $systemNodeNameKey
 			$Key         = $displayName
-
-			if($shareName) {
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']$")			
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/RemotePath$",$remotePath)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/Key$",$Key)	
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
-				$discoveryData.AddInstance($instance)
-				$discoveryData
-			}			
+						
+			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']$")			
+			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/RemotePath$",$remotePath)	
+			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/Key$",$Key)	
+			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
+			$discoveryData.AddInstance($instance)						
 		
 		} elseif ($discoveryItem -eq 'Disks') {			
 
@@ -1677,7 +1663,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 			$productVersion = $productInfo.ProductVersion
 			$IPAddress      = [System.Net.Dns]::GetHostByName($systemNodeName).AddressList.IPAddressToString.ToString()
 
-			if ($IPAddres -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
+			if ($IPAddress -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
 				$foo = 'No action required, valid IP.'
 			} else {
 				$IPAddress = 'No reverse DNS record found. (Just for your information.)'
@@ -1893,7 +1879,6 @@ $ErrorActionPreference = 'Continue'
 $F5BigIPHosts   = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
 $discoveryFiles = Get-ChildItem -Path $tempPath -Filter '*F5-Discovery-*.json' | Select-Object -ExpandProperty Name
 
-
 foreach($f5HostItem in $F5BigIPHosts) {
   
   $f5HostName      = ''
@@ -1954,30 +1939,26 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				}
 			}	
 
-		} elseif ($discoveryItem -eq 'RemotePath') { 
+		} elseif ($discoveryItem -eq 'RemotePath') { 			
 					
-			$shareName = ''	
-			$shares = Invoke-Expression -Command "net share"		
+			$shareName = 'OurF5InfoForSCOM' + '$'			
+			$shares    = Invoke-Expression -Command "net share"		
 						
 			if ($shares -like "*OurF5InfoForSCOM*") {
 				$foo = 'Not required to share directory; exiting to avoid empty discovery.'								
-			} else {
-				$shareName = 'OurF5InfoForSCOM' + '$'			
+			} else {				
 				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "											
 			}	
-
+			
 			$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
 			$displayName = 'F5 MonitoringServer RuntimeInfo for ' + $systemNodeNameKey
 			$Key         = $displayName
-
-			if($shareName) {
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']$")			
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/RemotePath$",$remotePath)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/Key$",$Key)	
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
-				$discoveryData.AddInstance($instance)
-				$discoveryData
-			}			
+						
+			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']$")			
+			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/RemotePath$",$remotePath)	
+			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/Key$",$Key)	
+			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
+			$discoveryData.AddInstance($instance)						
 		
 		} elseif ($discoveryItem -eq 'Disks') {			
 
@@ -2029,7 +2010,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 			$productVersion = $productInfo.ProductVersion
 			$IPAddress      = [System.Net.Dns]::GetHostByName($systemNodeName).AddressList.IPAddressToString.ToString()
 
-			if ($IPAddres -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
+			if ($IPAddress -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
 				$foo = 'No action required, valid IP.'
 			} else {
 				$IPAddress = 'No reverse DNS record found. (Just for your information.)'
@@ -2114,7 +2095,6 @@ $ErrorActionPreference = 'Continue'
 $F5BigIPHosts   = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
 $discoveryFiles = Get-ChildItem -Path $tempPath -Filter '*F5-Discovery-*.json' | Select-Object -ExpandProperty Name
 
-
 foreach($f5HostItem in $F5BigIPHosts) {
   
   $f5HostName      = ''
@@ -2175,30 +2155,26 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				}
 			}	
 
-		} elseif ($discoveryItem -eq 'RemotePath') { 
+		} elseif ($discoveryItem -eq 'RemotePath') { 			
 					
-			$shareName = ''	
-			$shares = Invoke-Expression -Command "net share"		
+			$shareName = 'OurF5InfoForSCOM' + '$'			
+			$shares    = Invoke-Expression -Command "net share"		
 						
 			if ($shares -like "*OurF5InfoForSCOM*") {
 				$foo = 'Not required to share directory; exiting to avoid empty discovery.'								
-			} else {
-				$shareName = 'OurF5InfoForSCOM' + '$'			
+			} else {				
 				Invoke-Expression -Command "net share $shareName=$tempPath /GRANT:Everyone,READ "											
 			}	
-
+			
 			$remotePath  = '\\' + $f5MonServer + '\' + $shareName	
 			$displayName = 'F5 MonitoringServer RuntimeInfo for ' + $systemNodeNameKey
 			$Key         = $displayName
-
-			if($shareName) {
-				$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']$")			
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/RemotePath$",$remotePath)	
-				$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/Key$",$Key)	
-				$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
-				$discoveryData.AddInstance($instance)
-				$discoveryData
-			}			
+						
+			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']$")			
+			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/RemotePath$",$remotePath)	
+			$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.MonitoringServerRuntimeInfo']/Key$",$Key)	
+			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)		
+			$discoveryData.AddInstance($instance)						
 		
 		} elseif ($discoveryItem -eq 'Disks') {			
 
@@ -2250,7 +2226,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 			$productVersion = $productInfo.ProductVersion
 			$IPAddress      = [System.Net.Dns]::GetHostByName($systemNodeName).AddressList.IPAddressToString.ToString()
 
-			if ($IPAddres -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
+			if ($IPAddress -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}') {
 				$foo = 'No action required, valid IP.'
 			} else {
 				$IPAddress = 'No reverse DNS record found. (Just for your information.)'
@@ -6138,7 +6114,7 @@ $discoveryData]]></ScriptBody>
         </OperationalStates>
         <Configuration>
           <NameSpace>root\cimv2</NameSpace>
-          <Query>SELECT StatusCode FROM Win32_PingStatus WHERE Address ='$Target/Property[Type="ABC.F5.BIGIP.System"]/IPAddress$'</Query>
+          <Query>SELECT * FROM Win32_PingStatus WHERE Address='$Target/Property[Type="ABC.F5.BIGIP.System"]/SystemNodeName$'</Query>
           <Frequency>300</Frequency>
           <ObjectName>F5PingCheck</ObjectName>
           <CounterName>PingCheckResponse</CounterName>
@@ -6170,7 +6146,7 @@ $discoveryData]]></ScriptBody>
         <Configuration>
           <IntervalSeconds>300</IntervalSeconds>
           <SyncTime />
-          <MonitorItem>NodeAddr</MonitorItem>
+          <MonitorItem>NodeAddrTable</MonitorItem>
           <Key>$Target/Property[Type="ABC.F5.BIGIP.NodeAddress"]/Key$</Key>
           <Threshold>90</Threshold>
         </Configuration>

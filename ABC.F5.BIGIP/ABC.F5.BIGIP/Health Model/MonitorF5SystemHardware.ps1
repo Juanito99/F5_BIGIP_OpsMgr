@@ -6,10 +6,11 @@ $Global:Error.Clear()
 $script:ErrorView      = 'NormalView'
 $ErrorActionPreference = 'Continue'
 
-$classF5MonServerRuntimeInfo         = Get-SCOMClass -Name 'ABC.F5.BIGIP.MonitoringServerRuntimeInfo'
-$classF5MonServerRuntimeInfoInstance = Get-SCOMClassInstance -Class $classF5MonServerRuntimeInfo
-$tempPath                            = $classF5MonServerRuntimeInfoInstance.'[ABC.F5.BIGIP.MonitoringServerRuntimeInfo].RemotePath'.Value
+$classF5MonServerRuntimeInfo               = Get-SCOMClass -Name 'ABC.F5.BIGIP.MonitoringServerRuntimeInfo'
+$classF5MonServerRuntimeInfoInstance       = Get-SCOMClassInstance -Class $classF5MonServerRuntimeInfo
+$classF5MonServerRuntimeInfoInstanceSingle = $classF5MonServerRuntimeInfoInstance | Select-Object -First 1
 
+$tempPath       = $classF5MonServerRuntimeInfoInstanceSingle.'[ABC.F5.BIGIP.MonitoringServerRuntimeInfo].RemotePath'.Value
 $testedAt       = "Tested on: $(Get-Date -Format u) / $(([TimeZoneInfo]::Local).DisplayName)"
 
 $F5BigIPHosts   = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
@@ -58,7 +59,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 		$discoverySystemFile        = $discoveryFiles | Where-Object {($_ -match 'GeneralInfo') -and ($_ -match $f5HostUrl)}
 		$discoverySystemFileContent = Get-Content -Path $($tempPath + '\' + $discoverySystemFile) | ConvertFrom-Json
 		$systemNodeNameKey          = $($discoverySystemFileContent.GeneralInfo.SystemNodeName)
-	
+				
 		if ($MonitorItem -eq 'CPU') {	
 
 			$classF5CPU          = Get-SCOMClass -Name 'ABC.F5.BIGIP.CPU'

@@ -3,7 +3,7 @@
     <Instance ID="Instance777ce6e2933b42b3aa5e40d7a17ea27d" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
       <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <MonitorType>Windows!Microsoft.Windows.WmiBased.Performance.ConsecutiveSamplesThreshold</MonitorType>
-        <MonitorConfig>&lt;NameSpace&gt;root\cimv2&lt;/NameSpace&gt;&lt;Query&gt;SELECT StatusCode FROM Win32_PingStatus WHERE Address ='$Target/Property[Type="ABC.F5.BIGIP.System"]/IPAddress$'&lt;/Query&gt;&lt;Frequency&gt;300&lt;/Frequency&gt;&lt;ObjectName&gt;F5PingCheck&lt;/ObjectName&gt;&lt;CounterName&gt;PingCheckResponse&lt;/CounterName&gt;&lt;InstanceName /&gt;&lt;Value&gt;$Data/Property[@Name='StatusCode']$&lt;/Value&gt;&lt;Threshold&gt;0&lt;/Threshold&gt;&lt;Direction&gt;greater&lt;/Direction&gt;&lt;NumSamples&gt;4&lt;/NumSamples&gt;</MonitorConfig>
+        <MonitorConfig>&lt;NameSpace&gt;root\cimv2&lt;/NameSpace&gt;&lt;Query&gt;SELECT * FROM Win32_PingStatus WHERE Address='$Target/Property[Type="ABC.F5.BIGIP.System"]/SystemNodeName$'&lt;/Query&gt;&lt;Frequency&gt;300&lt;/Frequency&gt;&lt;ObjectName&gt;F5PingCheck&lt;/ObjectName&gt;&lt;CounterName&gt;PingCheckResponse&lt;/CounterName&gt;&lt;InstanceName /&gt;&lt;Value&gt;$Data/Property[@Name='StatusCode']$&lt;/Value&gt;&lt;Threshold&gt;0&lt;/Threshold&gt;&lt;Direction&gt;greater&lt;/Direction&gt;&lt;NumSamples&gt;4&lt;/NumSamples&gt;</MonitorConfig>
         <MonitorOperationalStates>
           <OperationalState>
             <OperationalStateId>ConditionTrue</OperationalStateId>
@@ -38,7 +38,7 @@
       </UnitMonitorConfig>
     </Instance>
     <Instance ID="Instanceea6b5b764de34b76981450520b20d6ca" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.AggregateMonitor" Version="1.0.0.0">
-      <AggregateMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <AggregateMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Algorithm>WorstOf</Algorithm>
         <ParentMonitor>Health!System.Health.PerformanceState</ParentMonitor>
         <Accessibility>Internal</Accessibility>
@@ -59,7 +59,7 @@
     <Instance ID="Instance6634c31bb6184c6b99d69bb0ff016634" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
       <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <MonitorType>ABC.F5.BIGIP.Applications.Test.MonitorType</MonitorType>
-        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;NodeAddr&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.NodeAddress"]/Key$&lt;/Key&gt;&lt;Threshold&gt;90&lt;/Threshold&gt;</MonitorConfig>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;NodeAddrTable&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.NodeAddress"]/Key$&lt;/Key&gt;&lt;Threshold&gt;90&lt;/Threshold&gt;</MonitorConfig>
         <MonitorOperationalStates>
           <OperationalState>
             <OperationalStateId>UnderThreshold</OperationalStateId>
@@ -109,7 +109,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </UnitMonitorConfig>
     </Instance>
     <Instance ID="Instanceccf27b4fd1084d99a7b160762f620abf" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
-      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <MonitorType>ABC.F5.BIGIP.SystemHardware.Test.MonitorType</MonitorType>
         <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;Disks&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.Disk"]/Key$&lt;/Key&gt;&lt;Threshold&gt;10&lt;/Threshold&gt;</MonitorConfig>
         <MonitorOperationalStates>
@@ -153,7 +153,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$</AlertDescription>
       </UnitMonitorConfig>
     </Instance>
     <Instance ID="Instance446f5c588ac84420bb03a727f720e4f2" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
-      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <MonitorType>ABC.F5.BIGIP.SystemHardware.Test.MonitorType</MonitorType>
         <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;Memory&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.Memory"]/Key$&lt;/Key&gt;&lt;Threshold&gt;80&lt;/Threshold&gt;</MonitorConfig>
         <MonitorOperationalStates>
@@ -198,7 +198,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </UnitMonitorConfig>
     </Instance>
     <Instance ID="Instance397a9ffe34504119ada319645888e8e5" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
-      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <MonitorType>ABC.F5.BIGIP.Applications.Test.MonitorType</MonitorType>
         <MonitorConfig>&lt;IntervalSeconds&gt;900&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;TrafficGroup&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.TrafficGroupItem"]/Key$&lt;/Key&gt;&lt;Threshold&gt;&lt;/Threshold&gt;</MonitorConfig>
         <MonitorOperationalStates>
@@ -250,7 +250,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </UnitMonitorConfig>
     </Instance>
     <Instance ID="Instance50eec33537db498b986a3c4122de342d" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
-      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <MonitorType>ABC.F5.BIGIP.SystemHardware.Test.MonitorType</MonitorType>
         <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;CPU&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.CPU"]/Key$&lt;/Key&gt;&lt;Threshold&gt;90&lt;/Threshold&gt;</MonitorConfig>
         <MonitorOperationalStates>
@@ -294,7 +294,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$</AlertDescription>
       </UnitMonitorConfig>
     </Instance>
     <Instance ID="Instancebf2a90bea1db4eeb93fd959c3c7a3a0c" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
-      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <MonitorType>ABC.F5.BIGIP.Applications.Test.MonitorType</MonitorType>
         <MonitorConfig>&lt;IntervalSeconds&gt;900&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;SyncStatus&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.SyncStatusItem"]/Key$&lt;/Key&gt;&lt;Threshold&gt;&lt;/Threshold&gt;</MonitorConfig>
         <MonitorOperationalStates>
@@ -346,7 +346,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </UnitMonitorConfig>
     </Instance>
     <Instance ID="Instance8f1adc73791b4a9288493274c277c9fe" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
-      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <MonitorType>ABC.F5.BIGIP.Applications.Test.MonitorType</MonitorType>
         <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;PoolStatus&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="ABC.F5.BIGIP.PoolStatus"]/Key$&lt;/Key&gt;&lt;Threshold&gt;90&lt;/Threshold&gt;</MonitorConfig>
         <MonitorOperationalStates>
@@ -398,7 +398,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </UnitMonitorConfig>
     </Instance>
     <Instance ID="Instance78ca6b7499364353b91923b676591be8" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
-      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <DependencyMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Algorithm>
           <Algorithm>WorstOf</Algorithm>
         </Algorithm>
@@ -423,7 +423,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </DependencyMonitorConfig>
     </Instance>
     <Instance ID="Instancedb5a266173c344c29eb2e75a0da269cd" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
-      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <DependencyMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Algorithm>
           <Algorithm>WorstOf</Algorithm>
         </Algorithm>
@@ -448,7 +448,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </DependencyMonitorConfig>
     </Instance>
     <Instance ID="Instance2ee9be5cacdf4caf93f06910b9164d90" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
-      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <DependencyMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Algorithm>
           <Algorithm>WorstOf</Algorithm>
         </Algorithm>
@@ -473,7 +473,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </DependencyMonitorConfig>
     </Instance>
     <Instance ID="Instance894e80040e22440e96ebc322a7cdab71" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
-      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <DependencyMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Algorithm>
           <Algorithm>WorstOf</Algorithm>
         </Algorithm>
@@ -498,7 +498,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </DependencyMonitorConfig>
     </Instance>
     <Instance ID="Instance26879b3e5a5448af9e74aa01c0e6a17c" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
-      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <DependencyMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Algorithm>
           <Algorithm>WorstOf</Algorithm>
         </Algorithm>
@@ -523,7 +523,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </DependencyMonitorConfig>
     </Instance>
     <Instance ID="Instance35f233d115ff42e595865546ea2ac980" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
-      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <DependencyMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Algorithm>
           <Algorithm>WorstOf</Algorithm>
         </Algorithm>
@@ -548,7 +548,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </DependencyMonitorConfig>
     </Instance>
     <Instance ID="Instance2ca6a1eb67004fa2b24e848576cfb59c" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
-      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <DependencyMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Algorithm>
           <Algorithm>WorstOf</Algorithm>
         </Algorithm>
@@ -573,7 +573,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </DependencyMonitorConfig>
     </Instance>
     <Instance ID="Instance25dca4dc2e1a48a281a8f69dedfadc83" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
-      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <DependencyMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Algorithm>
           <Algorithm>WorstOf</Algorithm>
         </Algorithm>
@@ -598,7 +598,7 @@ Supplement: $Data/Context/Property[@Name='Supplement']$
       </DependencyMonitorConfig>
     </Instance>
     <Instance ID="Instance52739e45b1474dc29b611ef8a6b0d6ca" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
-      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <DependencyMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Algorithm>
           <Algorithm>WorstOf</Algorithm>
         </Algorithm>

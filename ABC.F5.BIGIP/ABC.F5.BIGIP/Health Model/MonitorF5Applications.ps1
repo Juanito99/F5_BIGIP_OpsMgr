@@ -6,10 +6,11 @@ $Global:Error.Clear()
 $script:ErrorView      = 'NormalView'
 $ErrorActionPreference = 'Continue'
 
-$classF5MonServerRuntimeInfo         = Get-SCOMClass -Name 'ABC.F5.BIGIP.MonitoringServerRuntimeInfo'
-$classF5MonServerRuntimeInfoInstance = Get-SCOMClassInstance -Class $classF5MonServerRuntimeInfo
+$classF5MonServerRuntimeInfo               = Get-SCOMClass -Name 'ABC.F5.BIGIP.MonitoringServerRuntimeInfo'
+$classF5MonServerRuntimeInfoInstance       = Get-SCOMClassInstance -Class $classF5MonServerRuntimeInfo
+$classF5MonServerRuntimeInfoInstanceSingle = $classF5MonServerRuntimeInfoInstance | Select-Object -First 1
 
-$tempPath = $classF5MonServerRuntimeInfoInstance.'[ABC.F5.BIGIP.MonitoringServerRuntimeInfo].RemotePath'.Value
+$tempPath = $classF5MonServerRuntimeInfoInstanceSingle.'[ABC.F5.BIGIP.MonitoringServerRuntimeInfo].RemotePath'.Value
 $testedAt = "Tested on: $(Get-Date -Format u) / $(([TimeZoneInfo]::Local).DisplayName)"
 
 $F5BigIPHosts   = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
@@ -112,19 +113,18 @@ foreach($f5HostItem in $F5BigIPHosts) {
 
 				} 
 		
-			} 
-
-		} elseif ($MonitorItem -eq 'NodeAddr') {	
-
+			} 		
+		} elseif ($MonitorItem -eq 'NodeAddrTable') {				
+			
 			$classF5NodeAddr          = Get-SCOMClass -Name 'ABC.F5.BIGIP.NodeAddress'
-			$classF5NodeAddrInstances = Get-SCOMClassInstance -Class $classF5NodeAddr			
+			$classF5NodeAddrInstances = Get-SCOMClassInstance -Class $classF5NodeAddr									
 
 			$classF5NodeAddrInstances | Where-Object {$_.'[ABC.F5.BIGIP.NodeAddress].SystemNodeName'.Value -eq $systemNodeNameKey} | ForEach-Object {						
-				
+								
 				$f5NodeAddr             = $_
 				[string]$f5NodeAddrName = [string]$($f5NodeAddr.'[ABC.F5.BIGIP.NodeAddress].NodeAddressName'.Value)
-				[string]$key            = [string]$($f5NodeAddr.'[ABC.F5.BIGIP.NodeAddress].Key'.Value) 			
-							
+				[string]$key            = [string]$($f5NodeAddr.'[ABC.F5.BIGIP.NodeAddress].Key'.Value) 									
+						
 				$discoveryFileContent.NodeAddrTable | Where-Object {$_.ltmNodeAddrName -eq $f5NodeAddrName} | ForEach-Object {		  		
 							
 					$nodeAddressName         = $_.ltmNodeAddrName
@@ -133,11 +133,11 @@ foreach($f5HostItem in $F5BigIPHosts) {
 					$nodeAddressMonitorRule  = $_.ltmNodeAddrMonitorRule
 					$nodeAddrMonitorStatus   = $_.ltmNodeAddrMonitorStatus
 					$nodeAddressEnabledState = $_.ltmNodeAddrEnabledState			
-					$nodeAddrSessionStatus   = $_.ltmNodeAddrSessionStatus
-			
-					$rawInfo                 = "NodeAddrName: $($nodeAddressName) Key: $($key) EnableState: $($nodeAddressEnabledState)"				
-
-					If($nodeAddrSessionStatus -ieq "Enabled" ) {
+					$nodeAddrSessionStatus   = $_.ltmNodeAddrSessionStatus			
+					 
+					$rawInfo                 = "NodeAddrName: $($nodeAddressName) Key: $($key) EnableState: $($nodeAddressEnabledState)"								
+										
+					if($nodeAddrSessionStatus -ieq "Enabled" ) {
 						if($nodeAddrMonitorStatus -ieq "up") {
 							$state      = 'Green'
 							$supplement = "NodeAddr is up."
@@ -148,7 +148,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 					} else {
 						$state      = 'Green'
 						$supplement = "NodeAddr not enabled. - Not in use, so also no problem."
-					}							
+					}												
 
 					$bag = $api.CreatePropertybag()					
 					$bag.AddValue("NodeAddrName",$nodeAddressName)

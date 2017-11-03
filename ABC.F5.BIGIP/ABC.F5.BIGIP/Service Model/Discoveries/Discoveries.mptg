@@ -1,7 +1,7 @@
 <TemplateGroup>
   <Instances>
     <Instance ID="Instance59a369aa6f7048e9b412a4190965cdc5" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.System.System</Id>
         <DisplayName>Discover F5 BIGIP System - System</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -24,12 +24,12 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instanceebf74a717faf4d9a81a138584ae24534" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.System.RemotePath</Id>
         <DisplayName>Discover F5 BIGIP System - RemotePath</DisplayName>
         <Description>Description for the new discovery.</Description>
         <DataSourceId>DS</DataSourceId>
-        <DataSourceConfig>&lt;IntervalSeconds&gt;3600&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;ScriptName&gt;DiscoverF5Systems.ps1&lt;/ScriptName&gt;&lt;ScriptBody&gt;$IncludeFileContent/Service Model/Discoveries/DiscoverF5Systems.ps1$&lt;/ScriptBody&gt;&lt;Parameters&gt;&lt;Parameter&gt;&lt;Name&gt;sourceId&lt;/Name&gt;&lt;Value&gt;$MPElement$&lt;/Value&gt;&lt;/Parameter&gt;&lt;Parameter&gt;&lt;Name&gt;managedEntityId&lt;/Name&gt;&lt;Value&gt;$Target/Id$&lt;/Value&gt;&lt;/Parameter&gt;&lt;Parameter&gt;&lt;Name&gt;discoveryItem&lt;/Name&gt;&lt;Value&gt;RemotePath&lt;/Value&gt;&lt;/Parameter&gt;&lt;Parameter&gt;&lt;Name&gt;tempPath&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="ABC.F5.BIGIP.MonitoringServer"]/FilePath$&lt;/Value&gt;&lt;/Parameter&gt;&lt;Parameter&gt;&lt;Name&gt;f5MonServer&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Parameter&gt;&lt;/Parameters&gt;&lt;TimeoutSeconds&gt;300&lt;/TimeoutSeconds&gt;</DataSourceConfig>
+        <DataSourceConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;ScriptName&gt;DiscoverF5Systems.ps1&lt;/ScriptName&gt;&lt;ScriptBody&gt;$IncludeFileContent/Service Model/Discoveries/DiscoverF5Systems.ps1$&lt;/ScriptBody&gt;&lt;Parameters&gt;&lt;Parameter&gt;&lt;Name&gt;sourceId&lt;/Name&gt;&lt;Value&gt;$MPElement$&lt;/Value&gt;&lt;/Parameter&gt;&lt;Parameter&gt;&lt;Name&gt;managedEntityId&lt;/Name&gt;&lt;Value&gt;$Target/Id$&lt;/Value&gt;&lt;/Parameter&gt;&lt;Parameter&gt;&lt;Name&gt;discoveryItem&lt;/Name&gt;&lt;Value&gt;RemotePath&lt;/Value&gt;&lt;/Parameter&gt;&lt;Parameter&gt;&lt;Name&gt;tempPath&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="ABC.F5.BIGIP.MonitoringServer"]/FilePath$&lt;/Value&gt;&lt;/Parameter&gt;&lt;Parameter&gt;&lt;Name&gt;f5MonServer&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Parameter&gt;&lt;/Parameters&gt;&lt;TimeoutSeconds&gt;180&lt;/TimeoutSeconds&gt;</DataSourceConfig>
         <DataSourceType>Windows!Microsoft.Windows.TimedPowerShell.DiscoveryProvider</DataSourceType>
         <Target>ABC.F5.BIGIP.MonitoringServer</Target>
         <Enabled>true</Enabled>
@@ -47,7 +47,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance30696356f38d46388921e8e67a92724c" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.System.Memory</Id>
         <DisplayName>Discover F5 BIGIP System - Memory</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -70,7 +70,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance7a5e01df091f4784a6aa0245f79dede8" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Id>Discovery.F5.BIGIP.System.HardwareRelations</Id>
         <DisplayName>Discover F5 BIGIP System - HardwareRelations</DisplayName>
         <Description>Discover F5 System Hardware Relations</Description>
@@ -101,7 +101,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance29eec0c4c55a4047bc2e566057cdf2f5" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.System.Disks</Id>
         <DisplayName>Discover F5 BIGIP System - Disks</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -124,7 +124,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance9c72f4c15af14d36a8d70eda8a144708" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.System.CPU</Id>
         <DisplayName>Discover F5 BIGIP System - CPU</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -147,7 +147,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instancee5fb18550b9a4855b7045bba29cd7eb4" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.MonitoringServer</Id>
         <DisplayName>Discover F5 BIGIP MonitoringServer</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -170,7 +170,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instancee6c596c02fbd4c4b9486fa7c0f6679cd" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.TrafficGroupItemGroups</Id>
         <DisplayName>Discover F5 BIGIP Application - TrafficItem Groups</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -193,7 +193,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance63c53899ab274acf80732aa483516006" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.TrafficGroupItem</Id>
         <DisplayName>Discover F5 BIGIP Application - TrafficGroupItem</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -216,7 +216,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance6bd092d4cbb640c4ac84f4eb353013b5" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.SystemHostsTrafficGroupItemGroup</Id>
         <DisplayName>Discover F5 BIGIP Application - System Hosts TrafficGroupItem Group</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -239,7 +239,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instanceb436e32fbdaa44748ae7a7d1c4c93bb0" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.SystemHostsSyncStatusItemGroup</Id>
         <DisplayName>Discover F5 BIGIP Application - System Hosts SyncStatusItem Group</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -262,7 +262,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance6796f039c7d14397bf4abe5f0cd630a2" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.SystemHostsPoolStatusGroup</Id>
         <DisplayName>Discover F5 BIGIP Application - System Hosts PoolStatus Group</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -285,7 +285,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance7668e977cfdb472788b536f97b6bb141" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.SystemHostsNodeAddressGroup</Id>
         <DisplayName>Discover F5 BIGIP Application - System Hosts NodeAddress Group</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -308,7 +308,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instanceb80424fcce8949328a06f0efa7bd0a60" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.SyncStatusItemGroups</Id>
         <DisplayName>Discover F5 BIGIP Application - SyncStatusItem Groups</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -331,7 +331,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance21a6d227817145f297bacce7830ebf18" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.SyncStatusItem</Id>
         <DisplayName>Discover F5 BIGIP Application - SyncStatusItem</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -354,7 +354,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance212f020cae6d4d29b39735d54c564b93" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.PoolStatusGroups</Id>
         <DisplayName>Discover F5 BIGIP Application - PoolStatus Groups</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -377,7 +377,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instanced5e8017cc4be4f17a2f74ca77a5579d9" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.PoolStatus</Id>
         <DisplayName>Discover F5 BIGIP Application - PoolStatus</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -400,7 +400,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instancedc44b289ee44442c8a41be736a48fdc0" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.NodeAddrTable</Id>
         <DisplayName>Discover F5 BIGIP Application - NodeAddrTable</DisplayName>
         <Description>Description for the new discovery.</Description>
@@ -423,7 +423,7 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance4d7c317e853a462ab81eb79c98c6991c" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
-      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discovery.F5.BIGIP.Application.NodeAddressGroups</Id>
         <DisplayName>Discover F5 BIGIP Application - NodeAddress Groups</DisplayName>
         <Description>Description for the new discovery.</Description>
