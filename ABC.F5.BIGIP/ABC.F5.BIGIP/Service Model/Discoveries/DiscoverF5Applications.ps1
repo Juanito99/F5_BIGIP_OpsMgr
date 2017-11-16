@@ -105,9 +105,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 				$displayName         = 'F5-Traffic Group Item ' + $groupName + '-' + $groupDeviceName + ' On ' + $systemNodeNameKey  
 				$key                 = $systemNodeNameKey + 'F5-TrafficGroupItem' + $groupName + $groupDeviceName		
 				$key                 = $key.replace('/','').replace('-','')		
-		
-				$api.LogScriptEvent('ABC.F5.BIGIP DiscoveryF5Applications.ps1',402,2,"DiscoveryF5Applicaitons Found TrafficGroup key: $($key)")
-
+				
 				if ($_.sysCmTrafficGroupStatusDeviceName) {
 					$instance = $discoveryData.CreateClassInstance("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']$")						
 					$instance.AddProperty("$MPElement[Name='ABC.F5.BIGIP.TrafficGroupItem']/DeviceName$",$groupDeviceName)					

@@ -113,7 +113,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 		} elseif ($discoveryItem -eq 'Memory') {		
 
 			$discoveryFileContent.F5Memory | ForEach-Object {		
-				$MemoryTotal = $([int]($_.MemoryTotal / 1024000000)).ToString()		
+				$MemoryTotal = $([int]($_.MemoryTotal / 1073741824)).ToString()		
 				$displayName = 'F5-Memory On ' + $systemNodeNameKey  
 				$key         = $systemNodeNameKey + 'F5-Memory'
 		

@@ -60,7 +60,7 @@ Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.A
 Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.SyncStatusItem*455*8*Discovery
 Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.PoolStatusGroups*490*8*Discovery
 Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.PoolStatus*517*8*Discovery
-Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.NodeAddrTable*552*8*Discovery
+Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.NodeAddress*552*8*Discovery
 Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.NodeAddressGroups*587*8*Discovery
 Health Model\Monitors.mptg.mpx*ABC.F5.BIGIP.Monitor.F5.BIGIP.System.Aggregate.HealthState*6*8*AggregateMonitor
 Health Model\Monitors.mptg.mpx*ABC.F5.BIGIP.Monitor.F5.BIGIP.System*10*8*UnitMonitor
@@ -98,27 +98,31 @@ Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5System*172*8*View
 Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5TrafficGroupItem*175*8*View
 Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5TrafficGroupItemGroup*200*8*View
 Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.MonitoringServer*203*8*View
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5PoolStatusGroup*206*8*View
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.NodeAddrGroup*209*8*View
 Presentation\Folders.mpx*ABC.F5.BIGIP.Folders*5*8*Folder
 Presentation\Folders.mpx*ABC.F5.BIGIP.Folders.Alerts*6*8*Folder
 Presentation\Folders.mpx*ABC.F5.BIGIP.Folders.State*7*8*Folder
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5CPU.FolderItem*208*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5Disk.FolderItem*209*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5Memory.FolderItem*210*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5NodeAddress.FolderItem*211*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5PoolStatus.FolderItem*212*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5SyncItemStatus.FolderItem*213*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5TrafficGroupItem.FolderItem*214*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5CPU.FolderItem*215*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5Disk.FolderItem*216*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5Memory.FolderItem*217*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5NodeAddr.FolderItem*218*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5PoolStatus.FolderItem*219*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5SyncStatusItem.FolderItem*220*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5SyncStatusItemGroup.FolderItem*221*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5System.FolderItem*222*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5TrafficGroupItem.FolderItem*223*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5TrafficGroupItemGroup.FolderItem*224*8*FolderItem
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.MonitoringServer.FolderItem*225*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5CPU.FolderItem*214*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5Disk.FolderItem*215*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5Memory.FolderItem*216*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5NodeAddress.FolderItem*217*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5PoolStatus.FolderItem*218*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5SyncItemStatus.FolderItem*219*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5TrafficGroupItem.FolderItem*220*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5CPU.FolderItem*221*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5Disk.FolderItem*222*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5Memory.FolderItem*223*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5NodeAddr.FolderItem*224*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5PoolStatus.FolderItem*225*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5SyncStatusItem.FolderItem*226*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5SyncStatusItemGroup.FolderItem*227*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5System.FolderItem*228*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5TrafficGroupItem.FolderItem*229*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5TrafficGroupItemGroup.FolderItem*230*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.MonitoringServer.FolderItem*231*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5PoolStatusGroup.FolderItem*232*8*FolderItem
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.NodeAddrGroup.FolderItem*233*8*FolderItem
 Presentation\Icons.mpx*ABC.F5.BIGIP.CPU*18*8*ImageReference
 Presentation\Icons.mpx*ABC.F5.BIGIP.Memory*19*8*ImageReference
 Presentation\Icons.mpx*ABC.F5.BIGIP.Disk*20*8*ImageReference
@@ -188,24 +192,26 @@ Health Model\Monitors.mptg.mpx*ABC.F5.BIGIP.Monitor.F5.BIGIP.System.SysDepOn.Mem
 Presentation\Folders.mpx*ABC.F5.BIGIP.Folders*15*10*DisplayString
 Presentation\Folders.mpx*ABC.F5.BIGIP.Folders.Alerts*20*10*DisplayString
 Presentation\Folders.mpx*ABC.F5.BIGIP.Folders.State*25*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5CPU*231*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5Disk*235*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5Memory*239*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5NodeAddress*243*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5PoolStatus*247*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5SyncItemStatus*251*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5TrafficGroupItem*255*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5CPU*259*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5Disk*263*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5Memory*267*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5NodeAddr*271*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5PoolStatus*275*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5SyncStatusItem*279*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5SyncStatusItemGroup*283*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5System*287*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5TrafficGroupItem*291*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5TrafficGroupItemGroup*295*10*DisplayString
-Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.MonitoringServer*299*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5CPU*239*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5Disk*243*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5Memory*247*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5NodeAddress*251*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5PoolStatus*255*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5SyncItemStatus*259*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.Alert.F5TrafficGroupItem*263*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5CPU*267*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5Disk*271*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5Memory*275*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5NodeAddr*279*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5PoolStatus*283*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5SyncStatusItem*287*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5SyncStatusItemGroup*291*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5System*295*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5TrafficGroupItem*299*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5TrafficGroupItemGroup*303*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.MonitoringServer*307*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.F5PoolStatusGroup*311*10*DisplayString
+Presentation\Views.mptg.mpx*ABC.F5.BIGIP.View.State.NodeAddrGroup*315*10*DisplayString
 Project.mpx*ABC.F5.BIGIP*5*10*DisplayString
 Service Model\Classes\Definitions.mpx*ABC.F5.BIGIP.System*167*10*DisplayString
 Service Model\Classes\Definitions.mpx*ABC.F5.BIGIP.System*172*10*DisplayString*SubElementID*SystemNodeName
@@ -294,7 +300,7 @@ Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.A
 Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.SyncStatusItem*675*10*DisplayString
 Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.PoolStatusGroups*679*10*DisplayString
 Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.PoolStatus*683*10*DisplayString
-Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.NodeAddrTable*687*10*DisplayString
+Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.NodeAddress*687*10*DisplayString
 Service Model\Discoveries\Discoveries.mptg.mpx*ABC.F5.BIGIP.Discovery.F5.BIGIP.Application.NodeAddressGroups*691*10*DisplayString
 Presentation\Icons.mpx*ABC.F5.BIGIP.F5CPU.Icon*33*6*Image
 Presentation\Icons.mpx*ABC.F5.BIGIP.F5Memory.Icon*34*6*Image

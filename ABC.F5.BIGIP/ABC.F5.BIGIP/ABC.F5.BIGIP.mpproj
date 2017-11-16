@@ -96,6 +96,7 @@
     <EmbeddedResource Include="Health Model\MonitorF5SystemHardware.ps1" />
     <EmbeddedResource Include="Service Model\Discoveries\DiscoverF5ApplicationRelations.ps1" />
     <EmbeddedResource Include="Service Model\Discoveries\DiscoverF5Applications.ps1" />
+    <EmbeddedResource Include="Service Model\Discoveries\DiscoverF5ApplicationSystemRelations.ps1" />
     <EmbeddedResource Include="Service Model\Discoveries\DiscoverF5SystemHardwareRelations.ps1" />
     <EmbeddedResource Include="Service Model\Discoveries\DiscoverF5Systems.ps1" />
   </ItemGroup>
