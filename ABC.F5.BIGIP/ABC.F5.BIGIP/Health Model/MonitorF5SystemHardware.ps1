@@ -95,7 +95,11 @@ foreach($f5HostItem in $F5BigIPHosts) {
 							$supplement += "`n Idle: $($cpuIdle)%" 
 						}      
 					} else {
+<<<<<<< HEAD
 						[int]$Threshold = 90						
+=======
+						[int]$cpuMaxThreshold = 90						
+>>>>>>> 89b59647521255af492b8b8672bf5b6b9a4afbbf
 						if ($cpuLoad -gt $Threshold) {
 							$state       = 'Failure'
 							$supplement  = "Threshold reached of: $($Threshold)% reached.`n Current CPU/Total: $($cpuLoad)%`n CPU/User $($cpuUser)% CPU/System $($cpuSystem)%"

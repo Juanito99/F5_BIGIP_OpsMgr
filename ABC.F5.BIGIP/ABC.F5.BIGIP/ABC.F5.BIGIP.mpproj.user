@@ -5,7 +5,11 @@
     <DeploymentCredentials>AskForCredentials</DeploymentCredentials>
     <DeploymentCookie>5248144956458097904</DeploymentCookie>
     <DeploymentAutoIncrementVersion>True</DeploymentAutoIncrementVersion>
+<<<<<<< HEAD
     <DeploymentNextVersion>1.0.0.114</DeploymentNextVersion>
+=======
+    <DeploymentNextVersion>1.0.0.111</DeploymentNextVersion>
+>>>>>>> 89b59647521255af492b8b8672bf5b6b9a4afbbf
     <DeploymentStartAction>DeployOnly</DeploymentStartAction>
     <DeploymentWebConsoleUrl />
     <DeploymentCommand />

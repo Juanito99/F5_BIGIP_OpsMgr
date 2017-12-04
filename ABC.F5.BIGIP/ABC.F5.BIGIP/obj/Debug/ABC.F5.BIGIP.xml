@@ -3,7 +3,11 @@
   <Manifest>
     <Identity>
       <ID>ABC.F5.BIGIP</ID>
+<<<<<<< HEAD
       <Version>1.0.0.112</Version>
+=======
+      <Version>1.0.0.117</Version>
+>>>>>>> 89b59647521255af492b8b8672bf5b6b9a4afbbf
     </Identity>
     <Name>ABC.F5.BIGIP</Name>
     <References>
@@ -414,6 +418,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
 					[int]$cpuLoad   = $cpuUser + $cpuSystem
 
 					if (($Threshold -gt 50) -and ($Threshold -lt 99)) { 															
+<<<<<<< HEAD
 						if ($cpuLoad -gt $Threshold) {
 							$state       = 'Failure'
 							$supplement  = "Threshold reached of: $($Threshold)% reached.`n Current CPU/Total: $($cpuLoad)%`n CPU/User $($cpuUser)% CPU/System $($cpuSystem)%"
@@ -432,6 +437,26 @@ foreach($f5HostItem in $F5BigIPHosts) {
 						} else {
 							$state      = 'Success'
 							$supplement  = "Value within threshold reached of: $($Threshold)%`n Current CPU/Total: $($cpuLoad)%`n CPU/User $($cpuUser)% CPU/System $($cpuSystem)%"
+=======
+						if ($cpuLoad -lt $Threshold) {
+							$state       = 'Failure'
+							$supplement  = "Threshold reached of: $($Threshold)% reached.`n Current Load: $($cpuLoad)%`n User-Part $($cpuUser)% System-Part $($cpuSystem)%"
+							$supplement += "`n Idle: $($cpuIdle)%" 
+						} else {
+							$state      = 'Success'
+							$supplement  = "Value within threshold reached of: $($Threshold)%`n Current Load: $($cpuLoad)%`n User-Part $($cpuUser)% System-Part $($cpuSystem)%"
+							$supplement += "`n Idle: $($cpuIdle)%" 
+						}      
+					} else {
+						[int]$cpuMaxThreshold = 90						
+						if ($cpuLoad -lt $Threshold) {
+							$state       = 'Failure'
+							$supplement  = "Threshold reached of: $($Threshold)% reached.`n Current Load: $($cpuLoad)%`n User-Part $($cpuUser)% System-Part $($cpuSystem)%"
+							$supplement += "`n Idle: $($cpuIdle)%" 
+						} else {
+							$state      = 'Success'
+							$supplement  = "Value within threshold reached of: $($Threshold)%`n Current Load: $($cpuLoad)%`n User-Part $($cpuUser)% System-Part $($cpuSystem)%"
+>>>>>>> 89b59647521255af492b8b8672bf5b6b9a4afbbf
 							$supplement += "`n Idle: $($cpuIdle)%" 
 						}   
 					}			
