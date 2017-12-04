@@ -20,8 +20,12 @@ Basic Management Pack which provides general health state and alerting for the f
 
 
 ### Downloads:
-[ManagementPack](https://github.com/Juanito99/F5_BIGIP_OpsMgr/blob/master/ABC.F5.BIGIP/ABC.F5.BIGIP/bin/Debug/ABC.F5.BIGIP.mpb) 
+[ManagementPack-Sealed](https://github.com/Juanito99/F5_BIGIP_OpsMgr/blob/master/ABC.F5.BIGIP/ABC.F5.BIGIP/bin/Debug/ABC.F5.BIGIP.mpb) 
+
+[ManagementPack-UnSealed](https://github.com/Juanito99/F5_BIGIP_OpsMgr/blob/master/ABC.F5.BIGIP/ABC.F5.BIGIP/bin/Release/ABC.F5.BIGIP.mpb) 
+
 [Source for VSAE 2015](https://github.com/Juanito99/F5_BIGIP_OpsMgr/tree/master/ABC.F5.BIGIP)
+
 
 
 
