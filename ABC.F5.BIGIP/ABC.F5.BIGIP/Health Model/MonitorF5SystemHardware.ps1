@@ -15,7 +15,7 @@ $testedAt       = "Tested on: $(Get-Date -Format u) / $(([TimeZoneInfo]::Local).
 
 $F5BigIPHosts   = Import-Csv -Path $($tempPath + '\' + 'F5-BigIP-Hosts.csv')
 $discoveryFiles = Get-ChildItem -Path $tempPath -Filter '*F5-Discovery-*.json' | Select-Object -ExpandProperty Name
-
+#TODO: CPU Monitor verification. - Maybe change logic and improve error message.
  
 foreach($f5HostItem in $F5BigIPHosts) {
   
@@ -78,29 +78,33 @@ foreach($f5HostItem in $F5BigIPHosts) {
 					$rawInfo = "Idle: $($_.Idle) User: $($_.User) System: $($_.System)"
 					[int]$Threshold			
 
-					$key = $systemNodeNameKey + 'F5-CPU' + $cpuID 			
+					$key          = $systemNodeNameKey + 'F5-CPU' + $cpuID 			
+					
+					[int]$cpuUser   = $_.User
+					[int]$cpuSystem = $_.System
+					[int]$cpuLoad   = $cpuUser + $cpuSystem
 
-					if (($Threshold -gt 50) -and ($Threshold -lt 99)) { 
-						$cpuMaxThreshold = 100 - $Threshold  
-						[int]$cpuIdle = [Math]::Abs($_.Idle)
-						if ($cpuIdle -lt $cpuMaxThreshold) {
+					if (($Threshold -gt 50) -and ($Threshold -lt 99)) { 															
+						if ($cpuLoad -gt $Threshold) {
 							$state       = 'Failure'
-							$supplement  = "Threshold reached of: $Threshold from max: $cpuMaxThreshold"
-							$supplement += "`n Idle: $($cpuIdle) " 
+							$supplement  = "Threshold reached of: $($Threshold)% reached.`n Current CPU/Total: $($cpuLoad)%`n CPU/User $($cpuUser)% CPU/System $($cpuSystem)%"
+							$supplement += "`n Idle: $($cpuIdle)%" 
 						} else {
 							$state      = 'Success'
-							$supplement = "Result within threshold of: $Threshold from max: $cpuMaxThreshold"
-							$supplement += "`n Idle: $($cpuIdle) " 
+							$supplement  = "Value within threshold reached of: $($Threshold)%`n Current CPU/Total: $($cpuLoad)%`n CPU/User $($cpuUser)% CPU/System $($cpuSystem)%"
+							$supplement += "`n Idle: $($cpuIdle)%" 
 						}      
 					} else {
-						[int]$cpuMaxThreshold = 90
-						if ($cpuIdle -lt $cpuMaxThreshold) {
-							$state      = 'Failure'
-							$supplement = "Threshold reached of: $Threshold from default max: $cpuMaxThreshold"
+						[int]$Threshold = 90						
+						if ($cpuLoad -gt $Threshold) {
+							$state       = 'Failure'
+							$supplement  = "Threshold reached of: $($Threshold)% reached.`n Current CPU/Total: $($cpuLoad)%`n CPU/User $($cpuUser)% CPU/System $($cpuSystem)%"
+							$supplement += "`n Idle: $($cpuIdle)%" 
 						} else {
 							$state      = 'Success'
-							$supplement = "Result within threshold of: $Threshold default from max: $cpuMaxThreshold"
-						}
+							$supplement  = "Value within threshold reached of: $($Threshold)%`n Current CPU/Total: $($cpuLoad)%`n CPU/User $($cpuUser)% CPU/System $($cpuSystem)%"
+							$supplement += "`n Idle: $($cpuIdle)%" 
+						}   
 					}			
 
 					$raw = "CPUId: $($cpuID); Key: $($key); State: $($state); Supplement: $($supplement); testedAt: $($testedAt)"					
@@ -200,8 +204,8 @@ foreach($f5HostItem in $F5BigIPHosts) {
 
 			$discoveryFileContent.F5Memory | ForEach-Object {		
 		
-				[int]$MemoryTotal  = [int]($_.MemoryTotal / 1024000000)
-				[int]$MemoryUsed   = [int]($_.MemoryUsed / 1024000000)
+				[int]$MemoryTotal  = [int]($_.MemoryTotal / 1073741824)
+				[int]$MemoryUsed   = [int]($_.MemoryUsed / 1073741824)
 				$MemoryUsedPercent = [int]($_.MemoryUsedPercent)	
 				$displayName       = 'F5-Memory' 
 
