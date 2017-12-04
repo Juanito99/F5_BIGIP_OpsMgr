@@ -1,0 +1,271 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instance379d0f651f2e477b94f32bb51b91f774" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.Alerts</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.AlertViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.Alert.F5CPU</Id>
+        <DisplayName>CPU</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.CPU</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance7b8b2985f96d479ca008231f6256d94e" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.Alerts</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.AlertViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.Alert.F5Disk</Id>
+        <DisplayName>Disk</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.Disk</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instanceb851de13073048fa909756e907e981a1" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.Alerts</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.AlertViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.Alert.F5Memory</Id>
+        <DisplayName>Memory</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.Memory</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instancea83d9c25d7b24eb9ba3f4105e047b48d" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.Alerts</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.AlertViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.Alert.F5NodeAddress</Id>
+        <DisplayName>NodeAddress</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.NodeAddress</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance6c1d8f679c914dc2859d4d0bbe85ead5" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.Alerts</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.AlertViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.Alert.F5PoolStatus</Id>
+        <DisplayName>PoolStatus</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.PoolStatus</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance12074138e7914a36812010b31f98def6" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.Alerts</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.AlertViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.Alert.F5SyncItemStatus</Id>
+        <DisplayName>SyncItems</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.SyncStatusItem</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instancece0f7fa387af458e8d3cdf531d974f7b" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.Alerts</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.AlertViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.Alert.F5TrafficGroupItem</Id>
+        <DisplayName>TrafficGroups</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.TrafficGroupItem</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance3b0f923d52694ec3b2f9ee1ef5952980" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.CPU&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;Id&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.CPU/Id&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.CPU/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.CPU/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.F5CPU</Id>
+        <DisplayName>CPU</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.CPU</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instancedd4049d25161482bac2b9c63f6912621" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Disk&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;TotalSize&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Disk/TotalSize&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;FullPathAttr&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Disk/FullPathAttr&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Disk/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Disk/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.F5Disk</Id>
+        <DisplayName>Disk </DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.Disk</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instanceed4bbaeb38104f849072e106ff3ed313" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Memory&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;MemoryTotal&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Memory/MemoryTotal&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Memory/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.Memory/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.F5Memory</Id>
+        <DisplayName>Memory</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.Memory</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance7be0bea5997b4158b98dc846c215bb23" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;NodeAddressMonitorRule&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress/NodeAddressMonitorRule&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;NodeAddressSessionStatus&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress/NodeAddressSessionStatus&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="400"&gt;&lt;Name&gt;NodeAddressName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress/NodeAddressName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="5" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.NodeAddress/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.F5NodeAddr</Id>
+        <DisplayName>NodeAddr</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.NodeAddress</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance6d7e5de78f46408a9cafc308de4e6d2a" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.PoolStatus&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;PoolStatusEnabledState&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.PoolStatus/PoolStatusEnabledState&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="400"&gt;&lt;Name&gt;PoolStatusName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.PoolStatus/PoolStatusName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.PoolStatus/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.PoolStatus/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.F5PoolStatus</Id>
+        <DisplayName>PoolStatus</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.PoolStatus</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instancee5c1d4d3005348efb2aa09755781256e" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.SyncStatusItem&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500"&gt;&lt;Name&gt;ItemName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.SyncStatusItem/ItemName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.SyncStatusItem/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.SyncStatusItem/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.F5SyncStatusItem</Id>
+        <DisplayName>SyncStatusItem</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.SyncStatusItem</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance903a4bc9af2b4e65a87aeabb9b561468" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.F5SyncStatusItemGroup</Id>
+        <DisplayName>SyncStatusItem Group</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.SyncStatusItem.Group</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instancec6c8dd7c609e409d8942a131adb59744" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.F5System</Id>
+        <DisplayName>System / Appliance</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.System</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instanceeb932e1e51b440b880d65968e9a9cbf1" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.TrafficGroupItem&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500"&gt;&lt;Name&gt;DeviceName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.TrafficGroupItem/DeviceName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="500"&gt;&lt;Name&gt;GroupName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.TrafficGroupItem/GroupName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;SystemNodeName&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.TrafficGroupItem/SystemNodeName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="340"&gt;&lt;Name&gt;Key&lt;/Name&gt;&lt;Id&gt;ABC.F5.BIGIP.TrafficGroupItem/Key&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.F5TrafficGroupItem</Id>
+        <DisplayName>TrafficGroupItem</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.TrafficGroupItem</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance157f856eb3d4492cb9d38b27d5c34682" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.F5TrafficGroupItemGroup</Id>
+        <DisplayName>TrafficGroupItem Group</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.TrafficGroupItem.Group</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance2bc0cae02d8e4e7eb744beafee6757bc" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.MonitoringServer</Id>
+        <DisplayName>MonitoringServer - (not monitored)</DisplayName>
+        <Description>Server that checks the F5.</Description>
+        <Target>ABC.F5.BIGIP.MonitoringServer</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instancec5d03545de844e1e9eadcf245c606b79" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.F5PoolStatusGroup</Id>
+        <DisplayName>PoolsTatus Group</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.PoolStatus.Group</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instancec09e70af6d1848a4b5cea23210da4ec2" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>ABC.F5.BIGIP.Folders.State</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.NodeAddrGroup</Id>
+        <DisplayName>Node Addr Group</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>ABC.F5.BIGIP.NodeAddress.Group</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>
