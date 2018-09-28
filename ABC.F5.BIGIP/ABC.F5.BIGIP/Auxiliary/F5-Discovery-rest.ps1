@@ -162,7 +162,7 @@ foreach($f5HostItem in $F5BigIPHosts) {
   $f5HostIPAddress = ''
   $f5HostUrl       = ''
 
-  if ($f5HostItem.HostName -match '[a-zA-Z0-9]{3,}') {
+  if ($f5HostItem.HostName -match '[a-zA-Z0-9\-\.]{3,}') {
 	$f5HostName = $f5HostItem.HostName
   }
 
